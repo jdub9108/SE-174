@@ -47,12 +47,7 @@ try {
                        PDO::ERRMODE_EXCEPTION);
                 
     $query = "SELECT * FROM ". TABLE_NAME;  
-                
-    // Constrain the query if we got names
-    // if ((strlen($name) > 0)) {
-    //     $query = "SELECT * FROM " .TABLE_NAME.
-    //            " WHERE name  = '$name' ";
-    // } 
+               
                 
     // Fetch the matching database table rows.
     $data = $con->query($query);
@@ -88,7 +83,7 @@ catch(PDOException $ex) {
 }         
 
 
-
+//Converts the persons' interests to a string from 
 
 function getInterests($array){
     $user_interests = "";
@@ -99,7 +94,7 @@ function getInterests($array){
     return substr($user_interests, 0, strlen($user_interests) - 2);
 }
 
-
+//Checks if the person is in the database
 
 function isInDatabase($input_age, $input_name, $input_address, $result){
     //Fetch the name, address and age from the database
