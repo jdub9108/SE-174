@@ -40,11 +40,12 @@ try {
                 
     $query = "SELECT * FROM ". TABLE_NAME;  
 
-    //    Constrain the query if we got names
+    //Constrain the query if we got names
     if ((strlen($name) > 0)) {
         $query = "SELECT * FROM " .TABLE_NAME. " WHERE name = '$name' ";
     } 
-    // Fetch the matching database table rows.
+
+    //Fetch the matching database table rows.
     $data = $con->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
 
@@ -71,10 +72,12 @@ try {
 
     echo "You are " . $enrollment . ".<br>"; 
     echo "You want to take: ". $user_interests;
+    $con = null;
 }
 
 catch(PDOException $ex) {
     echo 'ERROR: '.$ex->getMessage();
+    $con = null;
 }         
 
 //Converts the persons' interests to a string from 
