@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <title>Main file</title>
+  </head>
+  
+  <body>
+    
+    <h1> Welcome! </h1>
+    <form action="index.php"
+          method="post">
+      <fieldset>
+        <!-- <legend>User input</legend> -->
+        <p>
+          <label>Name:</label>
+          <input name="name" type="text" />
+        </p>
+        <p>
+          Age 
+          <select name="ages">
+            <option value="none">Select an age</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+
+          </select>
+        </p>
+        <p>
+          <label>Address:</label>
+          <input name="address" type="text" />
+        </p>
+        
+        <p>
+          <input type="radio"  name="enrollment" value="enrolled">Enrolled<br>
+          <input type="radio"  name="enrollment" value="waitlisted">Wait Listed<br>
+        </p>
+        
+        <p>
+          <label>Interests</label>
+          <input type="checkbox"
+                 name="interests[]"
+                 value="cs 174" /> CS 174
+          <input type="checkbox"
+                 name="interests[]"
+                 value="cs 149" /> CS 149
+          <input type="checkbox"
+                 name="interests[]"
+                 value="cs 166" /> CS 166
+          
+        </p>
+        
+        <p>
+          <input type="submit" value="Submit" name="submit">
+        </p>
+        
+      </fieldset>
+    </form>
+  </body>
+</html>
