@@ -76,7 +76,7 @@ try {
         echo "Hello " . $name_from_db . "<br>";
         echo "It's nice to have you back! <br>";
         $enrollment = ($result['enrollment_type'] > 0 ? "enrolled" : "waitlisted");        
-        $interests = $result['interests'];
+        $user_interests = $result['interests'];
     }          
 
     echo "You are " . $enrollment . ".<br>"; 
