@@ -113,7 +113,7 @@ function isInDatabase($input_age, $input_name, $input_address, $result){
     $ageMatches = ($age_from_db == $input_age);
     
 
-    return ($nameMatches == 1 && $addressMatches == 1 && $ageMatches == 1);
+    return ($nameMatches && $addressMatches  && $ageMatches);
                  
 }
 
