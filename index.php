@@ -14,14 +14,14 @@ echo ("<h3> San Jose State University </h3><br>");
 if(isset($_POST['submit'])){ //sumbit needs to have single quotes
 
     //Get the name
-    $name = filter_input(INPUT_POST, "name");
+    $name = trim(filter_input(INPUT_POST, "name"));
 
     //Get the age
     $age = $_POST["ages"];
 
 
     //Get the address 
-    $address = filter_input(INPUT_POST, "address");
+    $address = trim(filter_input(INPUT_POST, "address"));
 
 
     //Get the interests
@@ -48,7 +48,12 @@ try {
                 
     $query = "SELECT * FROM ". TABLE_NAME;  
                
-                
+
+    //    Constrain the query if we got names
+    if ((strlen($name) > 0)) {
+        $query = "SELECT * FROM " .TABLE_NAME.
+               " WHERE name = '$name' ";
+    } 
     // Fetch the matching database table rows.
     $data = $con->query($query);
     //$data->setFetchMode(PDO::FETCH_ASSOC);
@@ -62,7 +67,7 @@ try {
     if(!isInDatabase($age, $name, $address, $result)){
         echo "Welcome to the group " . $name . "! <br>";
         $enrolled = ($enrollment == "enrolled" ? 1: 0);
-
+        
         $query = "insert into persons values(null, '$name', $age, '$address', $enrolled, '$user_interests');";
         $con->exec($query);
 
@@ -100,14 +105,15 @@ function isInDatabase($input_age, $input_name, $input_address, $result){
     //Fetch the name, address and age from the database
     $name_from_db = $result['name'];
     $address_from_db = $result['address'];
-    $age_from_db = $result['age'];
-
+    $age_from_db = $result['age'];    
+    
     //Check if the name, address and age matches a person in the database
     $nameMatches = ($name_from_db == $input_name);
     $addressMatches = ($address_from_db == $input_address);
     $ageMatches = ($age_from_db == $input_age);
+    
 
-    return $nameMatches && $addressMatches && $ageMatches;
+    return ($nameMatches == 1 && $addressMatches == 1 && $ageMatches == 1);
                  
 }
 
