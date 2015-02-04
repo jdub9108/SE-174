@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>Main file</title>
+</head>
+
+<body>
+
 <?php
 
 //Constants
@@ -56,7 +65,7 @@ try {
     
     //The person is not in the database yet  
     if(!isInDatabase($age, $name, $address, $result)) {
-        echo "Welcome to the group " . $name . "! <br>";
+        echo "<p>Welcome to the group " . $name . "! </p>";
         $enrolled = ($enrollment == "enrolled" ? 1: 0);
         
         $query = "insert into persons values(null, '$name', $age, '$address', $enrolled, '$user_interests');";
@@ -64,14 +73,14 @@ try {
     }
 
     else{ 
-        echo "Hello " . $name_from_db . "<br>";
-        echo "It's nice to have you back! <br>";
+        echo "<p>Hello " . $name_from_db . "</p>";
+        echo "<p>It's nice to have you back! </p>";
         $enrollment = ($result['enrollment_type'] > 0 ? "enrolled" : "waitlisted");        
         $user_interests = $result['interests'];
     }          
 
-    echo "You are " . $enrollment . ".<br>"; 
-    echo "You want to take: ". $user_interests;
+    echo "<p>You are " . $enrollment . ".</p>"; 
+    echo "<p>You want to take: ". $user_interests . "</p>";
     $con = null;
 }
 
@@ -106,3 +115,6 @@ function isInDatabase($input_age, $input_name, $input_address, $result){
 }
 
 ?>
+
+</body>
+</html>
