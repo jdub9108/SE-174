@@ -1,0 +1,58 @@
+/* CSS for the home page*/
+
+
+.main_div{
+    margin-top: 2em;
+    text-align: center;
+}
+
+.menu_bar{
+    padding: 2em;
+
+}
+
+.menu_bar > a {
+
+	background:#e0e0e0;
+	border-radius: 0.1em;
+	color:black;
+	font-family:Verdana;	
+	font-size: 1.3em;
+        /* Adjusts how far the menu elements are */ 
+	margin-right:0.19em;
+	padding: 0.3em 1.2em;
+	text-decoration:none;
+	
+	transition: background 0.4s linear 0s, color 0.4s linear 0s;
+}
+
+.menu_bar > a:hover{
+	background: #0099FF;
+	color: white;
+}
+
+.search_bar{
+    margin-top: 2em;
+    height: 3em;
+    width: 32em;
+    border: 1.3px solid #B3B3B3;
+    border-radius: 0.35em;
+    font-size: 14px;
+
+}
+
+#home_submit{
+    width: 4.5em;    
+    height: 4.5em;
+    font-size: 10px;
+    border-radius: 50%;
+    border: 1.3px solid #B3B3B3;
+
+}
+
+#home_submit:hover{
+    background: #5ECC5E;
+    transition: background 0.4s linear 0s, color 0.4s linear 0s;
+    color: white;
+
+}
