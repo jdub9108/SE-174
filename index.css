@@ -1,5 +1,12 @@
 /* CSS for the home page*/
 
+#banner{
+    text-align: center;
+    width: 1000px;
+}
+
+
+
 .main_div{
     margin-top: 2em;
     text-align: center;
