@@ -8,27 +8,30 @@
 
     <link rel="stylesheet" type="text/css" href="index.css">
   </head>
-  
   <body >
     <div class="main_div">
       <img id="banner" src= "booksalesjsu.png">
-    <!-- menu bar -->
-     <nav class="menu_bar">
-       <a href="">Home</a>
-       <a href="">Browse</a>
-       <a href="">Recently Added</a>
-       <a href="">Login</a>
-     </nav>
+      <!-- menu bar -->
+      <nav class="menu_bar">
+	<a href="">Home</a>
+	<a href="">Browse</a>
+	<a href="#RecentlyAdded">Recently Added</a>
+	<a href="">Login</a>
+      </nav>
 
-     
-     <div id="search_bar">       
-       <form action="" id="form1"> <!-- Remember to put PHP --> 
-         <input type="text" class="search_bar"  name="search_query" placeholder="Enter an ISBN">
-         <button type="submit"  id="home_submit" form="form1" value="Submit"> Search </button>
-       </form>       
-     </div>
-     
-    </div>
-     
-  </body>
+      
+      <div id="search_bar">       
+	<form action="" id="form1"> <!-- Remember to put PHP --> 
+	  <input type="text" class="search_bar"  name="search_query" placeholder="Enter an ISBN">
+	  <button type="submit"  id="home_submit" form="form1" value="Submit"> Search </button>
+	</form>       
+      </div>
+      <div id="blankspace"></div>
+      <a name = "RecentlyAdded"></a>
+      <p>
+	This is where everyone can see what books have been recently added to our web app. 
+      </p>
+    </div>	    
+	    </body>
+
 </html>
