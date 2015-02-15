@@ -58,7 +58,7 @@
 
 .loginPage{
     margin-top: 2em;
-    width: 25em;
+    width: 22em;
     height: 3.5em;
 }
 
@@ -83,9 +83,9 @@
 
     margin-left: auto ;
     margin-right: auto ;
-    margin-top: 10px;
+    margin-top: 30px;
     margin-bottom: 110px;
-    width: 450px;
+    width: 400px;
     height:450px;    
     border-radius: 5px;
 
@@ -105,10 +105,32 @@ h2{
     font-weight: 400;
     border: 1.3px solid #B3B3B3;   
     border-radius: 5px;
+    background-color: #3C8CDA;
+
 }
 
 #login-send-button:hover{
-    background-color: #5ECC5E;
+    background-color: #0099FF;
     color: white;
-    transition: background 0.4s linear 0s, color 0.4s linear 0s;
+    transition: background 0.3s linear 0s, color 0.3s linear 0s;
+}
+
+
+/*fpr  == forgotPasswordRegister*/
+
+.fpr{
+    margin-top: 70px;
+    color: blue;
+    text-decoration: none;
+    color: #3C8CDA;
+}
+
+#forgotPassword{
+    float:left;
+    margin-left: 25px;
+}
+
+#register{
+    float:right;
+    margin-right: 25px;
 }
