@@ -80,7 +80,6 @@
 
 .userinfo{
     background-color:  #e0e0e0;
-
     margin-left: auto ;
     margin-right: auto ;
     margin-top: 30px;
@@ -88,8 +87,6 @@
     width: 400px;
     height:450px;    
     border-radius: 5px;
-
-    
 }
 
 h2{
@@ -115,6 +112,22 @@ h2{
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
 }
 
+#forgot-password-button{
+    width: 130px;
+    height: 50px;
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1.3px solid #B3B3B3;   
+    border-radius: 5px;
+    background-color: #3C8CDA;
+}
+
+#forgot-password-button:hover{
+    background-color: #0099FF;
+    color: white;
+    transition: background 0.3s linear 0s, color 0.3s linear 0s;
+}
 
 /*fpr  == forgotPasswordRegister*/
 
