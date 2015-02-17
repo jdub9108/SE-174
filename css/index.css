@@ -79,6 +79,8 @@
 }
 
 
+/** Class to represent login, forgot-password and registartion div */
+
 .user-info{
     background-color:  #e0e0e0;
     margin-left: auto ;
@@ -94,8 +96,14 @@
     height:450px;
 }
 
+
 #forgot-pw-height{
     height: 280px;
+}
+
+
+#registration-height{
+    height: 680px;
 }
 
 /** Used for the header of login/forgotPassword **/
@@ -106,7 +114,7 @@ h2{
 }
 
 
-/** This is now the class for the login and send email button **/
+/** This is now the class for the login, send email , and registration button **/
 
 .request-button{
     width: 130px;
@@ -124,7 +132,6 @@ h2{
     color: white;
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
 }
-
 
 
 
@@ -147,16 +154,8 @@ h2{
     margin-right: 25px;
 }
 
-.registration_info {
-    background-color: #e0e0e0;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    margin-bottom: 110px;
-    width: 400px;
-    height: 650px;
-    border-radius: 25px;
-}
+
+
 
 .registrationPage {
     margin-top: 2em;
@@ -164,16 +163,6 @@ h2{
     height: 3.5em;
 }
 
-#register-send-button {
-    width: 130px;
-    height: 50px;
-    margin-top: 40px;
-    font-size: 20px;
-    font-weight: 400;
-    border: 1.3px solid #B3B3B3;   
-    border-radius: 10px;
-    background-color: #3C8CDA;
-}
 
 #register-send-button:hover {
     background-color: #0099FF;
