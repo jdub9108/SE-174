@@ -2,7 +2,7 @@
 
 #banner {
     text-align: center;
-    width: 1000px;
+    width: 750px;
 }
 
 #blankspace {
@@ -32,7 +32,6 @@
 	margin-right:0.19em;
 	padding: 0.3em 1.2em;
 	text-decoration:none;
-	
 	transition: background 0.4s linear 0s, color 0.4s linear 0s;
 }
 
@@ -62,7 +61,7 @@
 #home_submit {
     width: 4.5em;    
     height: 4.5em;
-    font-size: 10px;
+    font-size: 12px;
     border-radius: 50%;
     border: 1.3px solid #B3B3B3;
 }
