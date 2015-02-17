@@ -56,11 +56,15 @@
 }
 
 
+/** used for login and forgotPassword pages */
+
 .loginPage{
     margin-top: 2em;
     width: 22em;
     height: 3.5em;
 }
+
+/** submit button for the home page**/
 
 #home_submit{
     width: 4.5em;    
@@ -71,6 +75,7 @@
 
 }
 
+/** submit button for the home page**/
 #home_submit:hover{
     background: #5ECC5E;
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
@@ -78,23 +83,37 @@
 
 }
 
-.userinfo{
+
+.user-info{
     background-color:  #e0e0e0;
     margin-left: auto ;
     margin-right: auto ;
     margin-top: 30px;
     margin-bottom: 110px;
     width: 400px;
-    height:450px;    
+    
     border-radius: 5px;
 }
+
+#login-height{
+    height:450px;
+}
+
+#forgot-pw-height{
+    height: 280px;
+}
+
+/** Used for the header of login/forgotPassword **/
 
 h2{
     padding-top: 30px;
     margin: auto;
 }
 
-#login-send-button{
+
+/** This is now the class for the login and send email button **/
+
+.request-button{
     width: 130px;
     height: 50px;
     margin-top: 40px;
@@ -102,34 +121,20 @@ h2{
     font-weight: 400;
     border: 1.3px solid #B3B3B3;   
     border-radius: 5px;
-    background-color: #3C8CDA;
-
+    background-color: #3C8CDA
 }
 
-#login-send-button:hover{
+
+.request-button:hover{
     background-color: #0099FF;
     color: white;
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
 }
 
-#forgot-password-button{
-    width: 130px;
-    height: 50px;
-    margin-top: 40px;
-    font-size: 20px;
-    font-weight: 400;
-    border: 1.3px solid #B3B3B3;   
-    border-radius: 5px;
-    background-color: #3C8CDA;
-}
 
-#forgot-password-button:hover{
-    background-color: #0099FF;
-    color: white;
-    transition: background 0.3s linear 0s, color 0.3s linear 0s;
-}
 
-/*fpr  == forgotPasswordRegister*/
+
+/*fpr  == forgotPasswordRegister */
 
 .fpr{
     margin-top: 70px;
