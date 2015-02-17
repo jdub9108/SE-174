@@ -1,3 +1,3 @@
-# SE-174
+# CS/SE 174 Web Programming 
 
-Team repo for CS-174
+Team repo for Web application 
