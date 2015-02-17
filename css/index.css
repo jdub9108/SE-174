@@ -1,16 +1,14 @@
-0/* CSS for the home page*/
+/* CSS for the home page*/
 
-#banner{
+#banner {
     text-align: center;
     width: 1000px;
 }
 
-#blankspace{
+#blankspace {
     width: 800px;
     height: 1400px;
-
 }
-
 
 .main_div{
     margin-top: 2em;
@@ -18,9 +16,8 @@
     font-family: Verdana;
 }
 
-.menu_bar{
+.menu_bar {
     padding: 2em;
-
 }
 
 .menu_bar > a {
@@ -30,7 +27,8 @@
 	color:black;
 	font-family:Verdana;	
 	font-size: 1.3em;
-        /* Adjusts how far the menu elements are */ 
+
+    /* Adjusts how far the menu elements are */ 
 	margin-right:0.19em;
 	padding: 0.3em 1.2em;
 	text-decoration:none;
@@ -38,47 +36,45 @@
 	transition: background 0.4s linear 0s, color 0.4s linear 0s;
 }
 
-.menu_bar > a:hover{
+.menu_bar > a:hover {
 	background: #0099FF;
 	color: white;
 }
 
-.inputField{
+.inputField {
     border: 1.3px solid #B3B3B3;
     border-radius: 0.35em;
     font-size: 14px;
 }
 
-#searchBar{
+#searchBar {
     margin-top: 2em;
     height: 3em;
     width: 32em;
 }
 
-
-.loginPage{
+.loginPage {
     margin-top: 2em;
     width: 22em;
     height: 3.5em;
 }
 
-#home_submit{
+#home_submit {
     width: 4.5em;    
     height: 4.5em;
     font-size: 10px;
     border-radius: 50%;
     border: 1.3px solid #B3B3B3;
-
 }
 
-#home_submit:hover{
+#home_submit:hover {
     background: #5ECC5E;
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
     color: white;
 
 }
 
-.userinfo{
+.userinfo {
     background-color:  #e0e0e0;
     margin-left: auto ;
     margin-right: auto ;
@@ -89,12 +85,12 @@
     border-radius: 5px;
 }
 
-h2{
+h2 { 
     padding-top: 30px;
     margin: auto;
 }
 
-#login-send-button{
+#login-send-button {
     width: 130px;
     height: 50px;
     margin-top: 40px;
@@ -103,16 +99,15 @@ h2{
     border: 1.3px solid #B3B3B3;   
     border-radius: 5px;
     background-color: #3C8CDA;
-
 }
 
-#login-send-button:hover{
+#login-send-button:hover {
     background-color: #0099FF;
     color: white;
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
 }
 
-#forgot-password-button{
+#forgot-password-button {
     width: 130px;
     height: 50px;
     margin-top: 40px;
@@ -123,7 +118,7 @@ h2{
     background-color: #3C8CDA;
 }
 
-#forgot-password-button:hover{
+#forgot-password-button:hover {
     background-color: #0099FF;
     color: white;
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
@@ -131,19 +126,19 @@ h2{
 
 /*fpr  == forgotPasswordRegister*/
 
-.fpr{
+.fpr {
     margin-top: 70px;
     color: blue;
     text-decoration: none;
     color: #3C8CDA;
 }
 
-#forgotPassword{
+#forgotPassword {
     float:left;
     margin-left: 25px;
 }
 
-#register{
+#register {
     float:right;
     margin-right: 25px;
 }

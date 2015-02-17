@@ -8,30 +8,34 @@
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
+
   <body >
     <div class="main_div">
       <img id="banner" src= "images/booksalesjsu.png">
+
       <!-- menu bar -->
       <nav class="menu_bar">
-	<a href="">Home</a>
-	<a href="">Browse</a>
-	<a href="#RecentlyAdded">Recently Added</a>
-	<a href="">Login</a>
+	      <a href="index.html">Home</a>
+	      <a href="">Browse</a>
+	      <a href="#RecentlyAdded">Recently Added</a>
+	      <a href="login.html">Login</a>
       </nav>
 
       
-      <div id="search_bar">       
-	<form action="" id="form1"> <!-- Remember to put PHP --> 
-	  <input type="text"   id="searchBar" class="inputField"  name="search_query" placeholder="Enter an ISBN">
-	  <button type="submit"  id="home_submit" form="form1" value="Submit"> Search </button>
-	</form>       
-      </div>
-      <div id="blankspace"></div>
-      <a name = "RecentlyAdded"></a>
-      <p>
-	This is where everyone can see what books have been recently added to our web app. 
-      </p>
-    </div>
+  <div id="search_bar">       
+	 <form action="" id="form1"> <!-- Remember to put PHP --> 
+	    <input type="text" id="searchBar" class="inputField"  name="search_query" placeholder="Enter an ISBN">
+	    <button type="submit" id="home_submit" form="form1" value="Submit"> Search </button>
+	 </form>       
+  </div>
+      
+  <div id="blankspace"></div>
+    <a name = "RecentlyAdded"></a>
+    <p>
+    	This is where everyone can see what books have been recently added to our web app. 
+    </p>
+  </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
     <script src="javascript/animatedJump.js"></script>
   </body>
