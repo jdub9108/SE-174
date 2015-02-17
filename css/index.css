@@ -169,6 +169,7 @@ h2 {
     border: 1.3px solid #B3B3B3;   
     border-radius: 10px;
     background-color: #3C8CDA;
+    float: relative
 }
 
 #register-send-button:hover {
