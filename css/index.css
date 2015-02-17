@@ -16,6 +16,12 @@
     font-family: Verdana;
 }
 
+body{
+    background-image: url("../images/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 2000px 2000px;
+}
+
 .menu_bar {
     padding: 2em;
 }
@@ -153,9 +159,6 @@ h2{
     float:right;
     margin-right: 25px;
 }
-
-
-
 
 .registrationPage {
     margin-top: 2em;
