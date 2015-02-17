@@ -1,16 +1,14 @@
-0/* CSS for the home page*/
+/* CSS for the home page*/
 
-#banner{
+#banner {
     text-align: center;
-    width: 1000px;
+    width: 750px;
 }
 
-#blankspace{
+#blankspace {
     width: 800px;
     height: 1400px;
-
 }
-
 
 .main_div{
     margin-top: 2em;
@@ -18,9 +16,8 @@
     font-family: Verdana;
 }
 
-.menu_bar{
+.menu_bar {
     padding: 2em;
-
 }
 
 .menu_bar > a {
@@ -30,26 +27,26 @@
 	color:black;
 	font-family:Verdana;	
 	font-size: 1.3em;
-        /* Adjusts how far the menu elements are */ 
+
+    /* Adjusts how far the menu elements are */ 
 	margin-right:0.19em;
 	padding: 0.3em 1.2em;
 	text-decoration:none;
-	
 	transition: background 0.4s linear 0s, color 0.4s linear 0s;
 }
 
-.menu_bar > a:hover{
-	background: #0099FF;
-	color: white;
+.menu_bar > a:hover {
+    background: #0099FF;
+    color: white;
 }
 
-.inputField{
+.inputField {
     border: 1.3px solid #B3B3B3;
     border-radius: 0.35em;
     font-size: 14px;
 }
 
-#searchBar{
+#searchBar {
     margin-top: 2em;
     height: 3em;
     width: 32em;
@@ -69,10 +66,9 @@
 #home_submit{
     width: 4.5em;    
     height: 4.5em;
-    font-size: 10px;
+    font-size: 12px;
     border-radius: 50%;
     border: 1.3px solid #B3B3B3;
-
 }
 
 /** submit button for the home page**/
@@ -80,7 +76,6 @@
     background: #5ECC5E;
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
     color: white;
-
 }
 
 
@@ -121,9 +116,8 @@ h2{
     font-weight: 400;
     border: 1.3px solid #B3B3B3;   
     border-radius: 5px;
-    background-color: #3C8CDA
+    background-color: #3C8CDA;
 }
-
 
 .request-button:hover{
     background-color: #0099FF;
@@ -136,19 +130,53 @@ h2{
 
 /*fpr  == forgotPasswordRegister */
 
-.fpr{
+.fpr {
     margin-top: 70px;
     color: blue;
     text-decoration: none;
     color: #3C8CDA;
 }
 
-#forgotPassword{
+#forgotPassword {
     float:left;
     margin-left: 25px;
 }
 
-#register{
+#register {
     float:right;
     margin-right: 25px;
+}
+
+.registration_info {
+    background-color: #e0e0e0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 110px;
+    width: 400px;
+    height: 650px;
+    border-radius: 25px;
+}
+
+.registrationPage {
+    margin-top: 2em;
+    width: 22em;
+    height: 3.5em;
+}
+
+#register-send-button {
+    width: 130px;
+    height: 50px;
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 1.3px solid #B3B3B3;   
+    border-radius: 10px;
+    background-color: #3C8CDA;
+}
+
+#register-send-button:hover {
+    background-color: #0099FF;
+    color: white;
+    transition: background 0.2s linear 0s, color 0.25s linear 0s;
 }

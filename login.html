@@ -1,21 +1,19 @@
 <html>
   <head>
-    <title>The login page</title>
+    <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
   <body>
+
     <div class="main_div">
-
-      
       <img id="banner" src= "images/booksalesjsu.png">
-
       
       <!-- menu bar -->
       <nav class="menu_bar">
-	<a href="">Home</a>
-	<a href="">Browse</a>
-	<a href="#RecentlyAdded">Recently Added</a>
-	<a href="">Login</a>
+      	<a href="index.html">Home</a>
+      	<a href="">Browse</a>
+      	<a href="#RecentlyAdded">Recently Added</a>
+      	<a href="login.html">Login</a>
       </nav>
 
 
@@ -33,9 +31,17 @@
           <a id="register" class="fpr" href="">Register</a>
         </div>
 
+         <form action="" id="form2"> <!-- Remember to put PHP -->
+      	   <input type="email" class="inputField loginPage" name="email" placeholder="  john.smith@example.com " required>
+           <input type="password" class="inputField loginPage" name="password" placeholder="  *******">
+           <button id="login-send-button" type="submit" form="form2" value="Submit"> Login </button>
+      	 </form>
+            
+          <div>
+            <a id="forgotPassword" class="fpr" href="forgotpassword.html"> Forgot Password?</a>
+            <a id="register" class="fpr" href="registration.html">Register</a>
+          </div>
       </div>
-      
-      
     </div>	    
-</body>
+  </body>
 </html>
