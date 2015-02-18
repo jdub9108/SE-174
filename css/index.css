@@ -16,10 +16,23 @@
     font-family: Verdana;
 }
 
-body{
-    background-image: url("../images/background.jpg");
-    background-repeat: no-repeat;
-    background-size: 2000px 2000px;
+#alien{
+    position: fixed;
+    float: left;
+    left: -75px;
+    bottom: 0px;
+    transition-duration: 7s;
+}
+
+#alienimage{
+    height: 200px;
+    width: 350px;
+}
+
+#alien:hover{
+    position: fixed;
+    float: left;
+    transform: translate(1150px,0px);
 }
 
 .menu_bar {
@@ -28,17 +41,18 @@ body{
 
 .menu_bar > a {
 
-	background:#e0e0e0;
-	border-radius: 0.1em;
-	color:black;
-	font-family:Verdana;	
-	font-size: 1.3em;
+    background:#e0e0e0;
+    border-radius: 0.1em;
+    color:black;
+    font-family:Verdana;	
+    font-size: 1.3em;
+    
 
     /* Adjusts how far the menu elements are */ 
-	margin-right:0.19em;
-	padding: 0.3em 1.2em;
-	text-decoration:none;
-	transition: background 0.4s linear 0s, color 0.4s linear 0s;
+    margin-right:0.19em;
+    padding: 0.3em 1.2em;
+    text-decoration:none;
+    transition: background 0.4s linear 0s, color 0.4s linear 0s;
 }
 
 .menu_bar > a:hover {
@@ -70,6 +84,7 @@ body{
 /** submit button for the home page**/
 
 #home_submit{
+    background: #e0e0e0;
     width: 4.5em;    
     height: 4.5em;
     font-size: 12px;
