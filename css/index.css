@@ -113,6 +113,8 @@
     background: #0099FF;
     /** how far the menu moves out to the left*/ 
     transform: translate(-135px,0px);
+    /* for safari */
+    -webkit-transform: translate(-135px,0px); 
     color: #FFFFFF;
 }
 
