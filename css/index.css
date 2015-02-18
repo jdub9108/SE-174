@@ -1,5 +1,7 @@
 /* CSS for the home page*/
 
+
+
 #banner {
     text-align: center;
     width: 750px;
@@ -34,22 +36,28 @@
 #alien:hover{
     position: fixed;
     float: left;
-    -webkit-transform: translate(1150px,0px);
+    /** used for Safari **/
+    -webkit-transform: translate(1150px,0px); 
+    transform: translate(1150px,0px);
 }
+
+/** menu bar **/
 
 .menu_bar {
     padding: 2em;
 }
 
+/** menu bar a tags **/
 .menu_bar > a {
 
     background:#e0e0e0;
-    border-radius: 0.1em;
+    border-radius: 0.2em;
     color:black;
     font-family:Verdana;	
     font-size: 1.3em;
-    
 
+
+    
     /* Adjusts how far the menu elements are */ 
     margin-right:0.19em;
     padding: 0.3em 1.2em;
@@ -57,21 +65,74 @@
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
 }
 
+/** menu bar a tags hover **/
 .menu_bar > a:hover {
     background: #0099FF;
     color: white;
 }
 
+/** vertical menu bar div  **/ 
+
+.v-menu-bar-div{
+
+    /** hides the scrollbar**/
+    overflow:hidden;
+    float:right;
+
+    /** extended the padding to make room for the moving menu items */
+    padding-left: 200px;
+}
+
+
+.vertical-menu-bar > li{
+    /* show no bullets */
+    list-style: none;
+    /** change the padding to change the size of the menu items **/
+    padding: 14px;
+    background-color: #e0e0e0;
+    margin-bottom: 8px;
+    border-radius:0.3em;
+    border-left: 18px solid #b1b1b1; 
+ 
+    /** pushes the menu offscreen **/
+    margin-right: -140px;
+
+    /* by having a transition-duration the animation doesn't get all spazzy*/
+    transition-duration: 1.0s;
+    z-index:2
+}
+
+
+.vertical-menu-bar > li > a{
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.v-menu-a:hover{
+    background: #0099FF;
+    /** how far the menu moves out to the left*/ 
+    transform: translate(-135px,0px);
+    color: #FFFFFF;
+}
+
 .inputField {
     border: 1.3px solid #B3B3B3;
     border-radius: 0.35em;
-    font-size: 14px;
+    font-size: 18px;
+}
+
+#search-bar-div{
+    width: 650px; /** IMPORTANT when width was 600px sidebar behaved strangely */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #searchBar {
     margin-top: 2em;
     height: 3em;
     width: 32em;
+
 }
 
 
@@ -99,6 +160,7 @@
     background: #5ECC5E;
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
     color: white;
+
 }
 
 
@@ -157,7 +219,6 @@ h2{
 }
 
 
-
 /*fpr  == forgotPasswordRegister */
 
 .fpr {
@@ -189,3 +250,4 @@ h2{
     color: white;
     transition: background 0.2s linear 0s, color 0.25s linear 0s;
 }
+
