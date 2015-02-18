@@ -16,6 +16,7 @@
     font-family: Verdana;
 }
 
+/** Represents the alien div element **/
 #alien{
     position: fixed;
     float: left;
@@ -24,6 +25,7 @@
     transition-duration: 7s;
 }
 
+/** Represents the actual alien image **/
 #alienimage{
     height: 200px;
     width: 350px;
@@ -32,7 +34,7 @@
 #alien:hover{
     position: fixed;
     float: left;
-    transform: translate(1150px,0px);
+    -webkit-transform: translate(1150px,0px);
 }
 
 .menu_bar {
