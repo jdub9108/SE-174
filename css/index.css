@@ -16,6 +16,10 @@
     margin-top: 2em;
     text-align: center;
     font-family: Verdana;
+
+    /* Set to minimum width and height for browser zoom and resize functionality */
+    min-width: 1100px;
+    min-height: 800px;
 }
 
 /** Represents the alien div element **/
