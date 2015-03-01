@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2015 at 07:41 PM
+-- Generation Time: Mar 01, 2015 at 09:10 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -32,8 +32,19 @@ CREATE TABLE IF NOT EXISTS `books` (
   `author_first` varchar(100) NOT NULL,
   `author_last` varchar(100) NOT NULL,
   `year_published` int(5) NOT NULL,
-  `pages` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `pages` int(5) NOT NULL,
+  `ISBN` int(13) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `books`
+--
+
+INSERT INTO `books` (`book_id`, `title`, `author_first`, `author_last`, `year_published`, `pages`, `ISBN`) VALUES
+(1, 'HTML5 and CSS3 for Dummies', 'Andy', 'Harris', 2015, 1000, 2147483647),
+(2, 'Practical C Programming', 'Steve', 'Oualline', 1997, 400, 2147483647),
+(3, 'Java in Easy Steps', 'Mike', 'Mcgrath', 2008, 100, 2147483647),
+(4, 'Programming in C# 3.0', 'Jesse', 'Donald', 2001, 700, 2147483647);
 
 -- --------------------------------------------------------
 
@@ -42,9 +53,19 @@ CREATE TABLE IF NOT EXISTS `books` (
 --
 
 CREATE TABLE IF NOT EXISTS `book_posts` (
-  `post_id` int(11) NOT NULL,
-  `book_id` int(11) NOT NULL
+  `book_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book_posts`
+--
+
+INSERT INTO `book_posts` (`book_id`, `post_id`) VALUES
+(1, 1),
+(2, 2),
+(3, 3),
+(4, 4);
 
 -- --------------------------------------------------------
 
@@ -58,7 +79,17 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `date` date NOT NULL,
   `content` text NOT NULL,
   `post_closed` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`post_id`, `user`, `date`, `content`, `post_closed`) VALUES
+(1, 'dmevada', '2015-03-01', 'test', 0),
+(2, 'brandonj', '2015-03-02', 'test post', 0),
+(3, 'calvinh', '2015-03-03', 'test post 2', 0),
+(4, 'jordanw', '2015-03-04', 'test post 3', 0);
 
 -- --------------------------------------------------------
 
@@ -74,16 +105,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(16) NOT NULL,
   `books_sold` int(10) NOT NULL,
   `books_bought` int(10) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `first_name`, `user_name`, `last_name`, `password`, `books_sold`, `books_bought`) VALUES
-(1, 'g', 'g', 'g', 'g', 0, 0),
-(2, 'g', 'gs', 'g', 'g', 0, 0),
-(3, 'g', 'g', 'g', 'g', 0, 0);
+(4, 'Dhruv', 'dmevada', 'Mevada', '1', 0, 0),
+(5, 'Brandon', 'brandonj', 'Jaculina', '2', 0, 0),
+(6, 'Calvin', 'calvinh', 'Ha', '3', 0, 0),
+(7, 'Jordan', 'jordanw', 'Watts', '4', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -95,6 +127,16 @@ CREATE TABLE IF NOT EXISTS `user_posts` (
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_posts`
+--
+
+INSERT INTO `user_posts` (`user_id`, `post_id`) VALUES
+(4, 1),
+(5, 2),
+(6, 3),
+(7, 4);
 
 --
 -- Indexes for dumped tables
@@ -110,7 +152,7 @@ ALTER TABLE `books`
 -- Indexes for table `book_posts`
 --
 ALTER TABLE `book_posts`
- ADD PRIMARY KEY (`post_id`,`book_id`), ADD KEY `posts_id_fk` (`book_id`);
+ ADD PRIMARY KEY (`book_id`,`post_id`), ADD KEY `posts_fk_id` (`post_id`);
 
 --
 -- Indexes for table `posts`
@@ -128,7 +170,7 @@ ALTER TABLE `users`
 -- Indexes for table `user_posts`
 --
 ALTER TABLE `user_posts`
- ADD PRIMARY KEY (`user_id`,`post_id`), ADD KEY `user_id_fk` (`post_id`);
+ ADD PRIMARY KEY (`user_id`,`post_id`), ADD KEY `post_fk_id` (`post_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -138,17 +180,17 @@ ALTER TABLE `user_posts`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `book_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-MODIFY `post_id` int(100) NOT NULL AUTO_INCREMENT;
+MODIFY `post_id` int(100) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- Constraints for dumped tables
 --
@@ -157,15 +199,15 @@ MODIFY `user_id` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- Constraints for table `book_posts`
 --
 ALTER TABLE `book_posts`
-ADD CONSTRAINT `book_id_fk` FOREIGN KEY (`post_id`) REFERENCES `books` (`book_id`),
-ADD CONSTRAINT `posts_id_fk` FOREIGN KEY (`book_id`) REFERENCES `posts` (`post_id`);
+ADD CONSTRAINT `books_fk_id` FOREIGN KEY (`book_id`) REFERENCES `books` (`book_id`) ON UPDATE CASCADE,
+ADD CONSTRAINT `posts_fk_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_posts`
 --
 ALTER TABLE `user_posts`
-ADD CONSTRAINT `post_id_fk` FOREIGN KEY (`user_id`) REFERENCES `posts` (`post_id`),
-ADD CONSTRAINT `user_id_fk` FOREIGN KEY (`post_id`) REFERENCES `users` (`user_id`);
+ADD CONSTRAINT `post_fk_id` FOREIGN KEY (`post_id`) REFERENCES `posts` (`post_id`),
+ADD CONSTRAINT `users_fk_id` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
