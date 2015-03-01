@@ -1,3 +1,5 @@
+//the first and last name of the person who posted, with the book title
+
 select first_name, last_name, title 
 from user_posts, users, book_posts, books 
 where user_posts.user_id = users.user_id 
