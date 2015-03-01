@@ -1,9 +1,6 @@
 <?php
 
-//Constants
-define("DATABASE_NAME", "atom");
-define("TABLE_NAME", "persons");
-define("PASSWORD", "mangotown166*");
+include 'header.php';
 
 if(isset($_POST['submit'])) { 
 	if (empty($_POST['email']) || empty($_POST['password'])) {
