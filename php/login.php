@@ -44,7 +44,7 @@ if(isset($_POST['submit'])) {
         
             //if the array is empty the username is invalid
             if(empty($data))
-                echo "<h3>You are not a user</h3>";
+                echo "<h3>You are not registered.</h3>";
             else{
                 //Get the correct password from the database
                 $db_password = $data[0]['password'];
@@ -55,7 +55,7 @@ if(isset($_POST['submit'])) {
                     echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
                 }
                 else{
-                    echo "<h3> Incorrect password";
+                    echo "<h3> Incorrect password.";
                 }
             }
         }
