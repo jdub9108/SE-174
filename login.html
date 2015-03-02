@@ -28,12 +28,12 @@
       <div class="user-info" id="login-height">
         
         <h2>Sign in</h2>
-        <form action="php/login.php" id="form2">
-	        <input type="text" class="inputField loginPage"  name="email" placeholder="Email: ">
-          <input type="text" class="inputField loginPage"  name="password" placeholder="Password: ">
-          <button class="request-button" type="submit" form="form2" value="Submit"> Login </button>
-	     </form>
-       
+        <form action="php/login.php" name="logIn" method="post">
+	  <input type="text" class="inputField loginPage"  name="username" placeholder="User name: ">
+          <input type="password" class="inputField loginPage"  name="password" placeholder="Password: ">
+          <button class="request-button" name="submit" type="submit" value="submit"> Login </button>
+	</form>
+        
         <div>
           <a id="forgotPassword" class="fpr" href="forgotpassword.html"> Forgot Password?</a>
           <a id="register" class="fpr" href="registration.html">Register</a>
