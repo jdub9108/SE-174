@@ -20,4 +20,4 @@ Screenshots for assignment 3
 3) after the registration, take another screenshot of the db, should have 5 users
 4) screenshot for query #1 --dhruv 
 5) screenshot for query #2 --dhruv
-6) screenshot of the tables; --dhruv 
+6) screenshot of the tables --dhruv 
