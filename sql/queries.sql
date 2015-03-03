@@ -13,11 +13,3 @@ from user_posts, users, book_posts, posts
 where user_posts.user_id = users.user_id 
 and user_posts.post_id = posts.post_id
 group by first_name;
-
-Screenshots for assignment 3
-1) Registration page
-2) Before the person was registered into the db (either from PHP my admin, or the mysql command prompt), this is the users table
-3) after the registration, take another screenshot of the db, should have 5 users
-4) screenshot for query #1 --dhruv 
-5) screenshot for query #2 --dhruv
-6) screenshot of the tables --dhruv 
