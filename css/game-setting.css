@@ -1,0 +1,18 @@
+#canvas{
+    border-radius: 0.2em;
+    border-color: #CACACA;
+    border-style: solid;
+    width: 600px;
+    height: 300px;
+
+ 
+}
+
+#canvas-div{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px; /* to move it down from the search bar */
+    width: 600px;
+
+}
