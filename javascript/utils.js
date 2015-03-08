@@ -95,3 +95,9 @@ function validateUserName(name){
     return "";
         
 }
+
+function alertForgotPW() {
+    alert("Your password has been sent to your email.");
+}
+	  
+	  
