@@ -13,7 +13,7 @@ function validateRegistration(){
     repeatPassword = document.getElementsByName("repeatPassword")[0].value;
 
     message += validatePassword(password, repeatPassword);
-    message += validateEmail(document.getElementsByName("email")[0].value);
+    message += validateEmail(true);
     message += validateUserName(document.getElementsByName("userName")[0].value);
     
     if(message != ""){
@@ -42,14 +42,23 @@ function validateName(name, isFirstName){
 }
 
 
-function validateEmail(email){
+function validateEmail(isPageRegistration) {
     //From Dr. Mak's lecture on February 26, 2015
+    var email = document.getElementsByName("email")[0].value;
     emailRegex = /^.+@.+\..{2,4}$/;
-
-    if (!email.match(emailRegex)){
-        return "Invalid email address. " + "Emails should be in the form xxxxx@xxxxx.xxx\n\n";
+    if (isPageRegistration){
+        if (!email.match(emailRegex)){
+            return "Invalid email address. " + "Emails should be in the form xxxxx@xxxxx.xxx\n\n";
+        }
+        return "";
     }
-    return "";
+    else if (!isPageRegistration) {
+        if (email.match(emailRegex)){
+            alert("Your password has been sent to your email.");
+        } else
+            alert("Invalid email.");
+    }
+        
 }
 
 function validatePassword(password, repeatPassword){
@@ -95,9 +104,3 @@ function validateUserName(name){
     return "";
         
 }
-
-function alertForgotPW() {
-    alert("Your password has been sent to your email.");
-}
-	  
-	  
