@@ -2,22 +2,29 @@
 
 include 'header.php';
 
-if(isset($_POST['submit'])) {
-
+if(isset($_POST['submit']))
+{
     //Checking if user name or password field is empty will ultimately be done using
     //javascript on the client side
     
-    if (empty($_POST['username']) || empty($_POST['password'])) {
-        if(empty($_POST['username'])){
+    if (empty($_POST['username']) || empty($_POST['password'])) 
+    {
+        if(empty($_POST['username']))
+        {
             echo "User name field is empty";
         }
-        else{
+
+        else
+        {
             echo "Password field is empty";
         }
-    } 
-    else{
+    }
 
-        try{
+    else
+    {
+
+        try
+        {
             // Define $email and $password
             $username=$_POST['username'];
             $password=$_POST['password'];
@@ -45,7 +52,9 @@ if(isset($_POST['submit'])) {
             //if the array is empty the username is invalid
             if(empty($data))
                 echo "<h3>You are not registered.</h3>";
-            else{
+           
+            else
+            {
                 //Get the correct password from the database
                 $db_password = $data[0]['password'];
             
@@ -54,16 +63,18 @@ if(isset($_POST['submit'])) {
                     $lastname = $data[0]['last_name'];
                     echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
                 }
-                else{
+                
+                else
+                {
                     echo "<h3> Incorrect password.";
                 }
             }
         }
-        catch(PDOException $ex){
+
+        catch(PDOException $ex)
+        {
             echo "Error: " .$ex->getMessage();
         }
     }
  }
-
-
 ?>

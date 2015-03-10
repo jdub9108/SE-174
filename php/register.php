@@ -2,8 +2,8 @@
 
 include 'header.php';
 
-
-	if(isset($_POST['submit'])){
+	if(isset($_POST['submit']))
+    {
 
 		$email = $_POST['email'];
 		$password = $_POST['password'];
@@ -24,6 +24,7 @@ include 'header.php';
         $prepared_statement->bindValue(':books_sold', 0, PDO::PARAM_INT);
         $prepared_statement->bindValue(':books_bought', 0, PDO::PARAM_INT);
         $prepared_statement->execute();
+        
     	$con = null;
 
         echo "<h2> Welcome to Book Sale $first_name!</h2>";
