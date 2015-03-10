@@ -2,19 +2,31 @@
   <head>
     <title>Login</title>
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
   </head>
+
   <body>
 
+    <div class="top-bar">
+      <ul>
+        <li> <a href="index.html"> Home </a></li>
+        <li> <a href="login.html"> Login </a></li>
+        <li> <a href="registration.html"> Registration  </a></li>
+     </ul>
+    </div>
+ 
     <div class="main_div">
-      <img id="banner" src= "images/booksalesjsu.png">
+
       
-      <!-- menu bar -->
+      <img id="banner" src= "images/booksalesjsu.png">
+
+      <!-- menu bar 
       <nav class="menu_bar">
       	<a href="index.html">Home</a>
       	<a href="">Browse</a>
       	<a href="index.html#RecentlyAdded">Recently Added</a>
       	<a href="login.html">Login</a>
-      </nav>
+      </nav> -->
 
       <div class="v-menu-bar-div">
         <ul class="vertical-menu-bar">
@@ -29,8 +41,8 @@
         
         <h2>Sign in</h2>
         <form action="php/login.php" name="logIn" method="post">
-	  <input type="text" class="inputField loginPage"  name="username" placeholder="User name: ">
-          <input type="password" class="inputField loginPage"  name="password" placeholder="Password: ">
+	  <input type="text" class="inputField loginPage"  name="username" placeholder="Username: ">
+          <input type="password" class="inputField loginPage"  name="password" placeholder="******** ">
           <button class="request-button" name="submit" type="submit" value="submit"> Login </button>
 	</form>
         

@@ -1,0 +1,38 @@
+body {
+	margin: 0px;
+}
+
+.top-bar {
+	background: gray;
+	color: white;
+	text-align: right;
+	font-family: "Arial Narrow";
+	font-size: 18pt;
+	font-weight: 100;
+	letter-spacing: 1.5px;
+	width: 100%;
+	height: auto;
+}
+
+.top-bar ul {
+	height: auto;
+	padding: 8px 0px;
+	margin: 0px;
+	overflow: hidden;
+}
+
+.top-bar a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.top-bar li {
+	display: inline;
+	padding: 1em;
+}
+
+.top-bar li:hover {
+	color: #000000;
+	background-color: #E89619;
+	transition-duration: 0.3s;
+}

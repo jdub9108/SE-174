@@ -1,7 +1,5 @@
 /* CSS for the home page*/
 
-
-
 #banner {
     text-align: center;
     width: 750px;
@@ -59,8 +57,6 @@
     color:black;
     font-family:Verdana;	
     font-size: 1.3em;
-
-
     
     /* Adjusts how far the menu elements are */ 
     margin-right:0.19em;
@@ -77,7 +73,7 @@
 
 /** vertical menu bar div  **/ 
 
-.v-menu-bar-div{
+.v-menu-bar-div {
 
     /** hides the scrollbar**/
     overflow:hidden;
@@ -86,7 +82,6 @@
     /** extended the padding to make room for the moving menu items */
     padding-left: 200px;
 }
-
 
 .vertical-menu-bar > li{
     /* show no bullets */
@@ -107,13 +102,13 @@
 }
 
 
-.vertical-menu-bar > li > a{
+.vertical-menu-bar > li > a {
     color: #e0e0e0;
     text-decoration: none;
     font-size: 20px;
 }
 
-.v-menu-a:hover{
+.v-menu-a:hover {
     background: #0099FF;
     /** how far the menu moves out to the left*/ 
     transform: translate(-135px,0px);
@@ -128,7 +123,7 @@
     font-size: 14px;
 }
 
-#search-bar-div{
+#search-bar-div {
     width: 650px; /** IMPORTANT when width was 600px sidebar behaved strangely */
     margin-left: auto;
     margin-right: auto;
@@ -141,10 +136,9 @@
 
 }
 
-
 /** used for login and forgotPassword pages */
 
-.loginPage{
+.loginPage {
     margin-top: 2em;
     width: 22em;
     height: 3.5em;
@@ -152,7 +146,7 @@
 
 /** submit button for the home page**/
 
-#home_submit{
+#home_submit { 
     background: #e0e0e0;
     width: 4.5em;    
     height: 4.5em;
@@ -162,17 +156,16 @@
 }
 
 /** submit button for the home page**/
-#home_submit:hover{
+#home_submit:hover {
     background: #5ECC5E;
     transition: background 0.4s linear 0s, color 0.4s linear 0s;
     color: white;
-
 }
 
 
 /** Class to represent login, forgot-password and registartion div */
 
-.user-info{
+.user-info {
     background-color:  #e0e0e0;
     margin-left: auto ;
     margin-right: auto ;
@@ -183,23 +176,23 @@
     border-radius: 5px;
 }
 
-#login-height{
+#login-height {
     height:450px;
 }
 
 
-#forgot-pw-height{
+#forgot-pw-height {
     height: 280px;
 }
 
 
-#registration-height{
+#registration-height{ 
     height: 680px;
 }
 
 /** Used for the header of login/forgotPassword **/
 
-h2{
+h2 {
     padding-top: 30px;
     margin: auto;
 }
@@ -207,7 +200,7 @@ h2{
 
 /** This is now the class for the login, send email , and registration button **/
 
-.request-button{
+.request-button {
     width: 130px;
     height: 50px;
     margin-top: 40px;
@@ -218,7 +211,7 @@ h2{
     background-color: #3C8CDA;
 }
 
-.request-button:hover{
+.request-button:hover {
     background-color: #0099FF;
     color: white;
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
@@ -250,10 +243,8 @@ h2{
     height: 3.5em;
 }
 
-
 #register-send-button:hover {
     background-color: #0099FF;
     color: white;
     transition: background 0.2s linear 0s, color 0.25s linear 0s;
 }
-
