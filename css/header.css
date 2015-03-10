@@ -14,6 +14,11 @@ body {
 	height: auto;
 }
 
+#logo {
+    float: left;
+    width: 75px;
+}
+
 .top-bar ul {
 	height: auto;
 	padding: 8px 0px;
