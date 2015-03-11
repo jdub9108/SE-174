@@ -3,25 +3,27 @@ body {
 }
 
 .top-bar {
-	background: gray;
+	background: #b1b1b1;
 	color: white;
 	text-align: right;
-	font-family: "Arial Narrow";
-	font-size: 18pt;
+	font-family: "Verdana";
+	font-size: 14pt;
 	font-weight: 100;
-	letter-spacing: 1.5px;
+	letter-spacing: 1px;
 	width: 100%;
 	height: auto;
 }
 
 #logo {
     float: left;
-    width: 75px;
+    width: 140px;
+    height: -100px;
+    padding: -5px 0px;
 }
 
 .top-bar ul {
 	height: auto;
-	padding: 8px 0px;
+	padding: 18px 0px;
 	margin: 0px;
 	overflow: hidden;
 }
@@ -37,7 +39,6 @@ body {
 }
 
 .top-bar li:hover {
-	color: #000000;
-	background-color: #E89619;
+	background-color: #0099FF;
 	transition-duration: 0.3s;
 }
