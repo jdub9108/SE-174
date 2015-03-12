@@ -1,5 +1,9 @@
 /* CSS for the home page*/
 
+body {
+    background-color: #e0e0e0;
+}
+
 #banner {
     text-align: center;
     width: 750px;
@@ -184,7 +188,7 @@
 /** Class to represent login, forgot-password and registartion div */
 
 .user-info {
-    background-color:  #e0e0e0;
+    background-color:  #ffffff;
     margin-left: auto ;
     margin-right: auto ;
     margin-top: 30px;

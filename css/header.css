@@ -31,16 +31,14 @@ body {
 .top-bar a {
 	text-decoration: none;
 	color: #FFFFFF;
-
 }
 
 .top-bar li {
 	display: inline;
 	padding: 1em;
-        transition: background 0.4s linear 0s, color 0.3s linear 0s;
+    transition: background 0.4s linear 0s, color 0.3s linear 0s;
 }
 
 .top-bar li:hover {
 	background-color: #0099FF;
- 
 }
