@@ -58,9 +58,11 @@ if(isset($_POST['submit']))
                 //Get the correct password from the database
                 $db_password = $data[0]['password'];
             
-                if($db_password == $password){
+                if($db_password == $password)
+                {
                     $firstname = $data[0]['first_name'];
                     $lastname = $data[0]['last_name'];
+                    header("Location: ../forums.html");
                     echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
                 }
                 
