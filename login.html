@@ -41,13 +41,12 @@
       </div>
 
       <div class="user-info" id="login-height">
-        
-        <h2>Sign in</h2>
-        <form action="php/login.php" name="logIn" method="post">
-	         <input type="text" class="inputField loginPage"  name="username" placeholder="  Username: ">
-           <input type="password" class="inputField loginPage"  name="password" placeholder="  ******** ">
-           <button class="request-button" name="submit" type="submit" value="submit"> Login </button>
-	     </form>
+        <h2>Sign in</h2>        
+      	<form action="php/login.php" id="loginForm" onsubmit= "return validateUserName(true)"> <!-- Need PHP -->
+          <input type="text" class="inputField loginPage"  name="userName" placeholder="Username: ">
+          <input type="text" class="inputField loginPage"  name="password" placeholder="******** ">
+      	  <button class="request-button" type="submit" form= "loginForm" value= "Submit"> Send Email </button>
+        </form>
         
         <div>
           <a id="forgotPassword" class="fpr" href="forgotpassword.html"> Forgot Password?</a>
