@@ -14,7 +14,7 @@ function validateRegistration(){
 
     message += validatePassword(password, repeatPassword);
     message += validateEmail(true);
-    message += validateUserName(document.getElementsByName("userName")[0].value);
+    message += validateUserName(false);
     
     if(message != ""){
         
@@ -44,11 +44,13 @@ function validateName(name, isFirstName){
 
 function validateEmail(isPageRegistration) {
     //From Dr. Mak's lecture on February 26, 2015
-    var email = document.getElementsByName("email")[0].value;
-    emailRegex = /^.+@.+\..{2,4}$/;
+    var email = document.getElementsByName("email")[0].value;    
+    var emailRegex = /^.+@.+\..{2,4}$/;
+    var invalidMessage = "Invalid email address.\n\nEmails should be in the form xxxxx@xxxxx.xxx\n\n";
+    
     if (isPageRegistration){
         if (!email.match(emailRegex)){
-            return "Invalid email address. " + "Emails should be in the form xxxxx@xxxxx.xxx\n\n";
+            return invalidMessage;
         }
         return "";
     }
@@ -56,7 +58,7 @@ function validateEmail(isPageRegistration) {
         if (email.match(emailRegex)){
             alert("Your password has been sent to your email.");
         } else
-            alert("Invalid email.");
+            alert(invalidMessage);
     }
         
 }
@@ -79,15 +81,22 @@ function validatePassword(password, repeatPassword){
     return "";
 }
 
-function validateUserName(name){
-
-    userNameRegex = /^[a-zA-Z]{4,20}/ //20 is the max length of a password from our database
+function validateUserName(login){
     
+    var name = document.getElementsByName("userName")[0].value;
+    var userNameRegex = /^[a-zA-Z]{4,20}/ //20 is the max length of a password from our database
+    var blankUserNameMessage = "Please provide a user name\n" ;
 
     if(name == ""){
-        return "Please provide a user name\n" ;
+        if(!login)
+            return blankUserNameMessage;
+        else{
+            alert (blankUserNameMessage);
+            return false;
+        }
+        
     }
-    else if(!name.match(userNameRegex)){
+    else if(!name.match(userNameRegex) && !login){
         
         var message =  "User names must begin with a letter and be between " + USERNAME_MIN_LENGTH +  " - "
             + USERNAME_MAX_LENGTH + " characters\n\n";
