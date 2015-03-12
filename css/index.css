@@ -169,7 +169,7 @@ body {
 
 #home_submit { 
     font-family: Verdana;
-    background: #e0e0e0;
+    background: #ffffff;
     width: 4.5em;    
     height: 4.5em;
     font-size: 12px;
@@ -184,8 +184,13 @@ body {
     color: white;
 }
 
+h2 {
+    color: #0099FF;
+    font-family: "Verdana";
+}
 
 /** Class to represent login, forgot-password and registartion div */
+
 
 .user-info {
     background-color:  #ffffff;
@@ -269,4 +274,8 @@ h2 {
     background-color: #0099FF;
     color: white;
     transition: background 0.2s linear 0s, color 0.25s linear 0s;
+}
+
+#canvas-div {
+    background-color: #FFFFFF;
 }
