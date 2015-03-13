@@ -1,44 +1,40 @@
-body {
-	margin: 0px;
-}
-
 .top-bar {
-	background: #3A5E49;
-	color: white;
-	text-align: right;
-	font-family: "Verdana";
-	font-size: 14pt;
-	font-weight: 100;
-	letter-spacing: 1px;
-	width: 100%;
-	height: auto;
+    background: rgb(214, 160, 55);
+    color: white;
+    text-align: right;
+    font-family: "Verdana";
+    font-size: 14pt;
+    font-weight: 100;
+    letter-spacing: 1px;
+    width: 100%;
+    height: auto;
 }
 
 #logo {
     float: left;
-    width: 140px;
-    height: -100px;
-    padding: -5px 0px;
+    width: 147px;
+    height: 70px;
+    padding: 0px 7px;
 }
 
 .top-bar ul {
-	height: auto;
-	padding: 18px 0px;
-	margin: 0px;
-	overflow: hidden;
+    height: auto;
+    padding: 18px 0px;
+    margin: 0px;
+    overflow: hidden;
 }
 
 .top-bar a {
-	text-decoration: none;
-	color: #FFFFFF;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .top-bar li {
-	display: inline;
-	padding: 1em;
+    display: inline;
+    padding: 1em;
     transition: background 0.4s linear 0s, color 0.3s linear 0s;
 }
 
 .top-bar li:hover {
-	background-color: #0099FF;
+    background-color: rgb(109, 164, 252);
 }

@@ -1,7 +1,8 @@
 /* CSS for the home page*/
 
 body {
-    background-color: #e0e0e0;
+    margin: 0px;
+    background-color: white;
 }
 
 #banner {
@@ -9,13 +10,13 @@ body {
     width: 750px;
 }
 
-#fillerText {
+#welcome-text {
     font-family: Verdana;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
-    width: 700px;
+    width: 800px;
     font-size: 50px;
-    color: gray;
+    color: rgb(109, 164, 252);
 }
 
 #sjsu {
@@ -25,12 +26,13 @@ body {
 }
 
 #blankspace {
+    margin-left: auto;
+    margin-right: auto;
     width: 800px;
     height: 1400px;
 }
 
 .main_div{
-    margin-top: 2em;
     text-align: center;
     font-family: Verdana;
 
@@ -98,7 +100,6 @@ body {
     /** hides the scrollbar**/
     overflow:hidden;
     float:right;
-
     /** extended the padding to make room for the moving menu items */
     padding-left: 200px;
 }
@@ -111,10 +112,10 @@ body {
     background-color: #e0e0e0;
     margin-bottom: 8px;
     border-radius:0.3em;
-    border-left: 18px solid #b1b1b1; 
+    border-left: 18px solid rgb(214, 160, 55); 
  
     /** pushes the menu offscreen **/
-    margin-right: -140px;
+    margin-right: -147px;
 
     /* by having a transition-duration the animation doesn't get all spazzy*/
     transition-duration: 1.0s;
@@ -123,13 +124,13 @@ body {
 
 
 .vertical-menu-bar > li > a {
-    color: #e0e0e0;
+    color: white;
     text-decoration: none;
     font-size: 20px;
 }
 
 .v-menu-a:hover {
-    background: #0099FF;
+    background: rgb(109, 164, 252);
     /** how far the menu moves out to the left*/ 
     transform: translate(-135px,0px);
     /* for safari */
@@ -174,7 +175,7 @@ body {
     height: 4.5em;
     font-size: 12px;
     border-radius: 50%;
-    border: 1.3px solid #B3B3B3;
+    border: 1.7px solid #B3B3B3;
 }
 
 /** submit button for the home page**/
