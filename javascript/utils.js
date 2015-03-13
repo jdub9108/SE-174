@@ -9,10 +9,7 @@ function validateRegistration(){
     message += validateName((document.getElementsByName("firstName")[0].value), true);
     message += validateName((document.getElementsByName("lastName")[0].value), false);
 
-    password = document.getElementsByName("password")[0].value;
-    repeatPassword = document.getElementsByName("repeatPassword")[0].value;
-
-    message += validatePassword(password, repeatPassword);
+    message += validatePassword(false);
     message += validateEmail(true);
     message += validateUserName(false);
     
@@ -63,8 +60,21 @@ function validateEmail(isPageRegistration) {
         
 }
 
-function validatePassword(password, repeatPassword){
+function validatePassword(login){
     
+
+    var password = document.getElementsByName("password")[0].value;
+    
+    //checks for login first
+    if (login) {
+        if (password == "") {
+            return "Please provide a password";
+        }
+        return "";
+    }
+
+    var repeatPassword = document.getElementsByName("repeatPassword")[0].value;
+            
     if(password.length > PASSWORD_MAX_LENGTH || password.length < PASSWORD_MIN_LENGTH){
         
         var message = "Your password is"
@@ -91,8 +101,8 @@ function validateUserName(login){
         if(!login)
             return blankUserNameMessage;
         else{
-            alert (blankUserNameMessage);
-            return false;
+            return blankUserNameMessage;
+
         }
         
     }
@@ -112,4 +122,23 @@ function validateUserName(login){
     }
     return "";
         
+}
+
+function validateLogin(){
+
+    var validuser = validateUserName(true);
+    var validpw =validatePassword(true);
+    var error = "";
+    
+    if(validuser != "")
+        error += validuser + "\n";
+    if(validpw != "")
+        error += validpw; 
+    if(error != "") {
+        error = "Errors: \n\n" + error;
+        alert(error);
+        return false;
+    }
+    return true;
+    
 }
