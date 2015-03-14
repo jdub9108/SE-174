@@ -30,10 +30,10 @@
 
       <div class="user-info" id="login-height">
         <h2>Sign in</h2>        
-      	<form action="php/login.php" id="loginForm" onsubmit= "return validateLogin()"> <!-- Need PHP -->
+      	<form action="php/login.php" method="post" id="loginForm" onsubmit= "return validateLogin()"> <!-- Need PHP -->
           <input type="text" class="inputField loginPage"  name="userName" placeholder="Username: ">
           <input type="password" class="inputField loginPage"  name="password" placeholder="******** ">
-      	  <button class="request-button" type="submit" form= "loginForm" value= "Submit"> Send Email </button>
+      	  <button class="request-button" name="submit" type="submit" form= "loginForm" value= "submit"> Send Email </button>
         </form>
         
         <div>
