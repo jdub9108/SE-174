@@ -2,14 +2,13 @@
 
 include 'header.php';
 
-if(isset($_POST['submit']))
-{
+if(isset($_POST['submit'])){
     //Checking if user name or password field is empty will ultimately be done using
     //javascript on the client side
     
-    if (empty($_POST['username']) || empty($_POST['password'])) 
+    if (empty($_POST['userName']) || empty($_POST['password'])) 
     {
-        if(empty($_POST['username']))
+        if(empty($_POST['userName']))
         {
             echo "User name field is empty";
         }
@@ -25,8 +24,9 @@ if(isset($_POST['submit']))
 
         try
         {
+
             // Define $email and $password
-            $username=$_POST['username'];
+            $username=$_POST['userName'];
             $password=$_POST['password'];
 
             // To protect MySQL injection
@@ -62,7 +62,7 @@ if(isset($_POST['submit']))
                 {
                     $firstname = $data[0]['first_name'];
                     $lastname = $data[0]['last_name'];
-                    header("Location: ../forums.html");
+                    // header("Location: ../forums.html");
                     echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
                 }
                 
@@ -78,5 +78,5 @@ if(isset($_POST['submit']))
             echo "Error: " .$ex->getMessage();
         }
     }
- }
+}
 ?>
