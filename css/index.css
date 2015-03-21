@@ -11,10 +11,11 @@ body {
 }
 
 #welcome-text {
-    font-family: Verdana;
+    font-family: Tahoma;
+    letter-spacing: 1px;
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
+    width: 550px;
     font-size: 50px;
     color: rgb(109, 164, 252);
 }
@@ -25,11 +26,13 @@ body {
     width: 300px;
 }
 
-#blankspace {
+#banner {
+    background-color: #D89F4A;
+    margin-top:80px;
     margin-left: auto;
     margin-right: auto;
-    width: 800px;
-    height: 1400px;
+    width: 100%;
+    height: 720px;
 }
 
 .main_div{
@@ -275,6 +278,54 @@ h2 {
     transition: background 0.2s linear 0s, color 0.25s linear 0s;
 }
 
-#canvas-div {
-    background-color: #FFFFFF;
+
+#down-button-div{
+    margin-top: 50px;   
+}
+
+
+
+
+#down-button {
+    -webkit-border-radius: 5;
+    -moz-border-radius: 5;
+    border-radius: 5px;
+    font-family: Verdana;
+    color: black;
+    font-size: 30px;
+    background:  #e0e0e0;
+    border: 3px solid #B3B3B3;
+    padding: 10px 40px 10px 40px;
+    text-decoration: none;
+}
+
+#down-button:hover {
+     background: #3cb0fd;
+     text-decoration: none;
+     transition: background 0.2s linear 0s, color 0.25s linear 0s;
+     color:white;
+}
+
+
+.banner-title {
+    height: 50px;
+    font-size: 70px;
+    font-family: Tahoma;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin-top: 50px;
+    display: inline-block;
+}
+
+.sub-heading {
+    font-size: 40px;
+    color: #FFFFFF;
+    line-height: 75px;
+}
+
+code {
+    background-color: black;
+    border: 2px solid black;
+    border-radius: 0.2em;
+    padding: 5px;
 }
