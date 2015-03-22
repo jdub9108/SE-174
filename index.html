@@ -20,18 +20,18 @@
       <div class="top-bar">
 	  <a href="index.html"> <img id="logo" src= "images/book-logo3.png"> </a>
 	<ul>
-          <li> <a href="index.html"> Home </a></li>
-          <li> <a href="login.html"> Login </a></li>
-          <li> <a href="registration.html"> Register </a></li>
-          <li> <a href=""> About  </a></li>
+          <li> <a href="index.html">Home</a></li>
+          <li> <a href="login.html">Login</a></li>
+          <li> <a href="registration.html">Register</a></li>
+          <li> <a href="">About</a></li>
 	</ul>
       </div>
 
       
       <!-- the alien div -->
-      <div id="alien">
-        <img id="alienimage" src= "images/book-alien.png">
-      </div>
+      <!-- <div id="alien"> -->
+      <!--   <img id="alienimage" src= "images/book-alien.png"> -->
+      <!-- </div> -->
 
       
       <!-- vertical menu bar -->
@@ -46,7 +46,7 @@
 
       
       <!-- welcome text -->
-      <p id = "welcome-text"> <b>Welcome to the Book Sale!</b> </p>
+      <p id = "welcome-text"> <b>simple book search</b> </p>
       <div id="sjsu">
 	<img src="images/sjsu.png">
       </div>
@@ -60,15 +60,42 @@
       	</form>       
       </div>
 
-      <!-- canvas animation //will remove later -->
-      <div id="canvas-div">
-        <canvas id="canvas"></canvas>
-      </div>
+      <!-- down button -->
+      <a href="#banner"><button class="home-buttons request-button">^___^</button></a>
 
-      
-      <div id="blankspace"></div>
-      <a name = "RecentlyAdded"></a>
-      <p>This is where everyone can see what books have been recently added to our web app. </p>
+      <!-- banner -->
+      <div id="banner">
+
+        <div class="slides" id="slide1">
+          <p class="slide-title">why us?</p>
+          <p class="sub-heading"> <code>textbooks are expensive </code></p>
+          <p class="sub-heading"> <code>fast search, instant results</code></p>
+          <p class="sub-heading"> <code>get money back by reselling</code></p>
+          
+          <button class="home-buttons request-button cbutton">></button>
+          
+        </div>
+
+        <div class="slides" id="slide2">
+          <p class="slide-title">search by:</p>
+          <p class="slide2-left sub-heading" id="isbn-slide"> <code>> ISBN <</code></p>
+          <p class="slide2-right sub-heading" id="author-slide"> <code>> AUTHOR <</code></p>
+          <p class="slide2-left sub-heading" id="title-slide"> <code>> TITLE <</code></p>
+
+          <button class="home-buttons request-button cbutton">></button>
+
+        </div>
+
+        <div class="slides" id="slide3">
+          <p class="slide-title">sign up and join us</p>
+          <div id="join-us-div">
+            <img src="images/join-us.png">
+          </div>
+          <button class="home-buttons request-button cbutton">></button>
+
+        </div>
+        
+      </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 

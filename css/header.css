@@ -4,7 +4,7 @@
     text-align: right;
     font-family: "Verdana";
     font-size: 14pt;
-    font-weight: 100;
+    font-weight: 900;
     letter-spacing: 1px;
     width: 100%;
     height: auto;
@@ -34,6 +34,7 @@
 .top-bar li {
     display: inline;
     padding: 1em;
+    margin-right:-10px;
     transition: background 0.4s linear 0s, color 0.3s linear 0s;
 }
 

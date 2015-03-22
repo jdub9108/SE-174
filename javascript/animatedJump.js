@@ -1,106 +1,79 @@
+//For all the slide transitions
+const DIV_OFFSCREEN_PERCENTAGE = 150;
+const SLIDE_SPEED = 350
 
+//For slide 2
+const TIME_TO_MIDDLE = 1100;
+const INITIAL_SLIDE_TIME = 300;
+const SLIDE_DELAY_INCREMENT_VALUE = INITIAL_SLIDE_TIME*2;
 
-var canvas = document.getElementById('canvas');
-var ctx = canvas.getContext('2d');
-
-const WIDTH = canvas.width;
-const HEIGHT = canvas.height;
-const FPS = 100;
-
-function Circle(x, y, radius, color, endSize){
-    this.x = x;
-    this.y = y;
-    this.radius = radius;
-    this.color= color;
-    this.isFull = false;
-    this.endSize = endSize;
-    this.xDirection = 4;
-    this.yDirection = 4;
+//jQuery 
+$(document).ready(function() {
     
-    Circle.prototype.draw = function (){
-       
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI, false);
-        ctx.fill(); 
+    var array = ["slide1", "slide2", "slide3"];
+    
+    //remove the first element
+    var slide = array.splice(0, 1);
+    
+    $(".cbutton").click(function () {
+        
+        moveLeft(slide);        
+        //push it back into the array
+
+        array.push(slide);
+        //remove the slide
+        slide = array.splice(0,1);
+        showSlide(slide);
+
+        if (slide == "slide2"){
+            
+            var slideTime = INITIAL_SLIDE_TIME;
+            //move the slide then increment the div
+            moveCenter("isbn-slide", slideTime);
+            slideTime += SLIDE_DELAY_INCREMENT_VALUE;
+            
+            moveCenter("author-slide", slideTime);
+            slideTime += SLIDE_DELAY_INCREMENT_VALUE;
+            
+            moveCenter("title-slide", slideTime);
+        }
+
+    });
+
+    /*
+      Moves HTML elements to the middle of the screen
+     */
+    function moveCenter(slide, time) {
+        
+        setTimeout(function(){
+            $("#"+slide).animate({
+                "margin-left": "0%" 
+            }, TIME_TO_MIDDLE);
+        }, time);           
     }
 
-    Circle.prototype.animate = function (){
-
-
-
-        if ( this.radius*2 <= 10) {
-            this.isFull = false;
-        }
-        else if(this.radius*2 >= this.endSize){
-            this.isFull = true
-        }
-        
-        if(!this.isFull)
-            this.radius +=2;
-        else if(this.isFull)
-            this.radius -=2;
-
-        this.draw();
-        
-    }
-
-    Circle.prototype.changeDirection = function(){
-        if(this.x - this.radius <= 0 || this.x + this.radius >= WIDTH)
-            this.xDirection = -this.xDirection;
-        if(this.y - this.radius <= 0 || this.y + this.radius >= HEIGHT)
-            this.yDirection = -this.yDirection;
-    };
-
-    Circle.prototype.move = function(){
-        this.draw();
-        this.changeDirection();
-        this.x += this.xDirection;
-        this.y += this.yDirection;
-    };
-
-}
-
-
-
-var bigBall =  new Circle(WIDTH/2, HEIGHT/2, 10, "blue", HEIGHT);
-var topLeftBall = new Circle(WIDTH/10, HEIGHT/4, 35, "gold", HEIGHT/4);
-var topRightBall = new Circle(.9*WIDTH, HEIGHT/4, 10, "gold", HEIGHT/4);
-
-var bottomLeftBall = new Circle(WIDTH/10, HEIGHT*.85, 10, "gold", HEIGHT/4);
-var bottomRightBall = new Circle(.9*WIDTH, HEIGHT*.85, 10, "gold", HEIGHT/4);
-
-
-var movingBall = new Circle(WIDTH/10, HEIGHT/4, 20, "red", HEIGHT);
-
-var ballsArray = [topLeftBall, bigBall, topRightBall, bottomLeftBall, bottomRightBall];
-
-
-function run(){
     
-    setTimeout(function() {
-        //Always clear the canvas before running the animations
-        //Clearing the canvas should NOT be in the other classes, only in the run function
-        ctx.clearRect(0,0,WIDTH,HEIGHT);
-  
-        for(var i = 0; i < ballsArray.length; i++) {
-            //use clousure to assure every ball referenced is the correct ball
-            (function(index){
-                var ball = ballsArray[index];
-                ball.animate();
-                                   
-            })(i);
+    function moveLeft(slide){
 
-        }
-        movingBall.move();        
-
-        requestAnimationFrame(run);
-    }, 1000 / FPS);                            
-}
-
-
-run();
-
+        var resetPercentage = "-" + DIV_OFFSCREEN_PERCENTAGE + "%";
+        
+        $("#"+slide).animate({
+            "left": resetPercentage //-150%
+        }, 400, function() {
+            resetPercentage = resetPercentage.substring(1);
+            //important function callback to move the slide back to the right
+            $(this).css("left", resetPercentage); //150%
+        });        
+    }
+    
+    function showSlide(slide){
+        
+        $("#"+slide).animate({
+            "left": "0%"
+        }, SLIDE_SPEED);
+    }
+    
+});
 
 
 //Here is the src we used: http://css-tricks.com/snippets/jquery/smooth-scrolling/
@@ -120,3 +93,6 @@ $('a[href*=#]:not([href=#])').click(function() {
         }
     }
 });
+
+
+
