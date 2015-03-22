@@ -26,14 +26,6 @@ body {
     width: 300px;
 }
 
-#banner {
-    background-color: #D89F4A;
-    margin-top:80px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    height: 720px;
-}
 
 .main_div{
     text-align: center;
@@ -179,6 +171,7 @@ body {
     font-size: 12px;
     border-radius: 50%;
     border: 1.7px solid #B3B3B3;
+    cursor: pointer;
 }
 
 /** submit button for the home page**/
@@ -235,9 +228,12 @@ h2 {
     margin-top: 40px;
     font-size: 20px;
     font-weight: 400;
-    border: 1.3px solid #B3B3B3;   
+    border: 2.3px solid #B3B3B3;   
     border-radius: 5px;
     background-color: #3C8CDA;
+    margin-left:auto;
+    margin-right:auto;
+    cursor: pointer;
 }
 
 .request-button:hover {
@@ -307,7 +303,24 @@ h2 {
 }
 
 
-.banner-title {
+#banner {
+    overflow: hidden;
+    margin-top: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 720px;
+    position: relative;
+}
+
+.slides {
+    position: absolute;
+    width: 100%;
+    height: 720px;
+}
+
+
+.slide-title {
     height: 50px;
     font-size: 70px;
     font-family: Tahoma;
@@ -329,3 +342,28 @@ code {
     border-radius: 0.2em;
     padding: 5px;
 }
+
+#slide1 {
+    background-color: #D89F4A;
+}
+
+#slide2 {
+    background-color: #3CB0FD;
+    left: 150%;
+}
+
+#slide3 {
+    background-color: red;
+    left: 150%;
+}
+
+.home-buttons {
+    background-color: #e0e0e0;
+
+    
+}
+
+.home-buttons > a {
+    text-decoration: none;
+}
+
