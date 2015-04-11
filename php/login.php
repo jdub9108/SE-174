@@ -66,9 +66,12 @@ if(isset($_POST['submit'])){
                     echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
                 }
                 
+
+                //need to implement something that indicates to the user of an incorrect login
                 else
                 {
-                    echo "<h3> Incorrect password.";
+                    header("Location: ../login.html");
+                    exit();
                 }
             }
         }
