@@ -61,7 +61,6 @@ function validateEmail(isPageRegistration) {
 }
 
 function validatePassword(login){
-    
 
     var password = document.getElementsByName("password")[0].value;
     
@@ -74,19 +73,17 @@ function validatePassword(login){
     }
 
     var repeatPassword = document.getElementsByName("repeatPassword")[0].value;
-            
-    if(password.length > PASSWORD_MAX_LENGTH || password.length < PASSWORD_MIN_LENGTH){
+
+    if(password.length > PASSWORD_MAX_LENGTH) {
         
-        var message = "Your password is"
-        
-        if (password.length >  PASSWORD_MAX_LENGTH) {
-            return message + " too long. The max is " + PASSWORD_MAX_LENGTH + " characters\n\n" ;
-        }
-        else{
-            return message + " too short. Passwords must be at least " + PASSWORD_MIN_LENGTH + " characters\n\n";
-        }
+        return "Your password is too long. The max is " + PASSWORD_MAX_LENGTH + " characters \n\n";
     }
-    else if(password != repeatPassword)
+
+    if(password.length < PASSWORD_MIN_LENGTH) {
+        return "Your password is too short. The min is " + PASSWORD_MAX_LENGTH + " characters \n\n";
+    }
+    
+    if(password != repeatPassword)
         return "Your passwords do not match\n\n"
     return "";
 }
@@ -121,7 +118,6 @@ function validateUserName(login){
         return message;
     }
     return "";
-        
 }
 
 function validateLogin(){
