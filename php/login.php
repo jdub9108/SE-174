@@ -7,14 +7,8 @@ if(isset($_POST['submit']))
     try
     {
         // Define $email and $password
-        $username=$_POST['userName'];
-        $password=$_POST['password'];
-
-        // To protect MySQL injection
-        $username = stripslashes($username);
-        $password = stripslashes($password);
-        $username = mysql_real_escape_string($username);
-        $password = mysql_real_escape_string($password);
+        $username = $_POST['userName'];
+        $password = $_POST['password'];
 
         //db connection
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
@@ -46,12 +40,11 @@ if(isset($_POST['submit']))
                 // header("Location: ../forums.html");
                 echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
             }
-            
 
-            //need to implement something that indicates to the user of an incorrect login
             else
             {
-                header("Location: ../login.html");
+                echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
+                showLoginPage();
                 exit();
             }
         }
@@ -62,4 +55,56 @@ if(isset($_POST['submit']))
         echo "Error: " .$ex->getMessage();
     }
 }
+
+function showLoginPage()
+{
+   echo "
+    <html>
+      <head>
+        <title>Login</title>
+        <link rel='stylesheet' type='text/css' href='../css/index.css'>
+        <link rel='stylesheet' type='text/css' href='../css/header.css'>
+        <script type='text/javascript' src='../javascript/utils.js'></script>
+      </head>
+
+      <body>
+        
+        <div class='main_div'>
+
+        <div class='top-bar'>
+          <a href='index.html'> <img id='logo' src= '../images/book-logo3.png'> </a>
+          <ul>
+            <li> <a href='../index.html'> Home </a></li>
+            <li> <a href='../login.html'> Login </a></li>
+            <li> <a href='../registration.html'> Register  </a></li>
+              <li> <a href='../about.html'>About</a></li>
+         </ul>
+        </div>
+
+          <div class='v-menu-bar-div'>
+            <ul class='vertical-menu-bar'>
+              <li class='v-menu-a'> <a href=''>About</a> </li> 
+              <li class='v-menu-a'> <a href=''>Contact Us</a> </li> 
+              <li class='v-menu-a'> <a href=''>Lorum Ipsum</a> </li>
+              <li class='v-menu-a'> <a href='http://www.sjsu.edu'>SJSU</a> </li>
+            </ul>
+          </div>
+
+          <div class='user-info' id='login-height'>
+            <h2>Sign in</h2>        
+            <form action='php/login.php' method='post' id='loginForm' onsubmit= 'return validateLogin()''> <!-- Need PHP -->
+              <input type='text' class='inputField loginPage'  name='userName' placeholder='Username: ''>
+              <input type='password' class='inputField loginPage'  name='password' placeholder='******** ''>
+              <button class='request-button' name='submit' type='submit' form= 'loginForm' value= 'submit'> Sign in </button>
+            </form>
+            
+            <div>
+              <a id='forgotPassword' class='fpr' href='forgotpassword.html'> Forgot Password?</a>
+              <a id='register' class='fpr' href='registration.html'>Register</a>
+            </div>            
+          </div>        
+      </body>
+    </html>";
+}
+
 ?>
