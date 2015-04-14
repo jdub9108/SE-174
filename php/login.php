@@ -26,13 +26,17 @@ if(isset($_POST['submit']))
     
         //if the array is empty the username is invalid
         if(empty($data))
-            echo "<h3>You are not registered.</h3>";
-       
+        {
+            echo "<script type='text/javascript'> alert('You are not registered'); </script>";
+            showLoginPage();
+        }    
+           
         else
         {
             //Get the correct password from the database
             $db_password = $data[0]['password'];
         
+            //redirect to forums
             if($db_password == $password)
             {
                 $firstname = $data[0]['first_name'];
