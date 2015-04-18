@@ -161,6 +161,22 @@ body {
     height: 3.5em;
 }
 
+/**Dialog buttons */
+#dialog_button {
+    background:#e0e0e0;
+    width: 5em;
+    height: 3em;
+    border-radius: 50%;
+    border: 1.7px solid #B3B3B3;
+    cursor: pointer;
+}
+
+#dialog_button:hover {
+    background: #5ECC5E;
+    transition: background 0.4s linear 0s, color 0.4s linear 0s;
+    color: white;
+}
+
 /** submit button for the home page**/
 
 #home_submit { 
@@ -236,6 +252,13 @@ h2 {
     cursor: pointer;
 }
 
+.ui-icon {
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    margin: auto;
+}
+
 .request-button:hover {
     background-color: #0099FF;
     color: white;
@@ -278,9 +301,6 @@ h2 {
 #down-button-div{
     margin-top: 50px;   
 }
-
-
-
 
 #down-button {
     -webkit-border-radius: 5;
