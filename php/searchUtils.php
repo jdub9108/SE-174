@@ -9,6 +9,7 @@ class Book {
     private $isbn;
     //the user_name of the owner of the book
     private $user_name;
+    private $image_path;
 
     public function getID() {return $this->book_id ;}
     public function getTitle() {return $this->title ;}
@@ -17,8 +18,9 @@ class Book {
     public function getYear() {return $this->year_published ;}
     public function getPages() {return $this->pages ;}
     public function getISBN() {return $this->isbn ;}
-    public function getUserId() {return $this->user_id ;}
-    // java 9781840784435 2008
+    public function getUserId() {return $this->user_name ;}
+    public function getImagePath() {return $this->image_path;}
+
 }
 
 
