@@ -1,12 +1,4 @@
 
-
-
-<!DOCTYPE html>
-<html>
-<head>
-</head>
-<body>
-
 <?php
 
 include 'searchUtils.php';
@@ -17,6 +9,7 @@ define ("FROM_QUERY",   "FROM books, user_books, users ");
 define ("WHERE_QUERY",  "AND books.book_id = user_books.book_id AND users.user_id = user_books.user_id ");
 define ("BOOKS_PER_COLUMN", 4);
 define ("NO_BOOK_COVER", "images/bookCovers/noBookCover.jpg");
+define ("NO_RESULTS", "Your search yield no results :(");
 
 function createTable($obj_array, $total_books) {
 
@@ -46,7 +39,7 @@ function createTableElement($book) {
     $breakTag = "<br>";
     
     $title = $book->getTitle();
-    $title_format = sprintf('Title: %s %s', $title, $breakTag);
+    $title_format = sprintf('<span id="bookTitle"> Title: %s %s </span>', $title, $breakTag);
     
     $author = $book->getFirstName() . " " . $book->getLastName();
     $author_format = sprintf('Author: %s %s', $author, $breakTag);
@@ -62,45 +55,102 @@ function createTableElement($book) {
     if(empty($image_path)) {
         $image_path = NO_BOOK_COVER;
     }
-    $image_format = sprintf('<img src="%s" height="210" width="150"> %s', $image_path, $breakTag);
+    $image_format = sprintf('<img class="bookImage" src="%s" height="210" width="150"> %s', $image_path, $breakTag);
 
     echo $image_format;
     echo $title_format;
     echo $author_format;
     echo $isbn_format;   
     echo $owner_format;
-    
+    echo '<button class="contact-button request-button home-buttons">Contact</button>';
     echo '</td>';
 }
 
-// get the search term from javascript    
-$searchTerm = $_GET['q'];
-// check if the search should be for an ISBN
-$isbnPass = $_GET['i'];
-
-$con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
-$con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-
-//here we search for an ISBN
-if ($isbnPass == "true") {
-    // $query = SELECT_QUERY . FROM_QUERY . "WHERE year_published = 2001 " . WHERE_QUERY;
-    $query = SELECT_QUERY . FROM_QUERY . "WHERE isbn = :isbn " . WHERE_QUERY;
-    $ps = $con -> prepare($query);
-    $ps -> bindParam(':isbn', $searchTerm);
+function grabBooks($ps) {
     $ps -> setFetchMode(PDO::FETCH_CLASS, 'Book');
     $ps -> execute();
-
     $obj_array = $ps ->fetchAll();
-    // print_r($obj_array);
     $total_books = count($obj_array);
-    createTable($obj_array, $total_books);
+
+    if (!empty($total_books))
+        createTable($obj_array, $total_books);
+    else
+        echo NO_RESULTS;
 }
-else {
+
+function getDataFromJavascript() {
+    // get the search term from javascript
+
+    $searchTerm = $_GET['q'];
+    if(preg_match("/^\s+$/", $searchTerm)) { //check if the user entered in blank spaces
+        echo NO_RESULTS;
+        return;
+    }
+
+    // check if the search should be for an ISBN
+    if ( isset($_GET['i']) ) { //call the isset method to catch any exceptions
+        $isbnPass = $_GET['i'];
+    }
+    else
+        $isbnPass = "false";
+
+    return array($searchTerm, $isbnPass);
+}
+
+function makeDataBaseConnection() {
     
+    $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
+    $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    return $con;
 }
+
+function findBooks($javascriptData, $con) {
+    
+    $searchTerm = $javascriptData[0];
+    $isbnPass = $javascriptData[1];
+    
+    //here we search for an ISBN
+    if ($isbnPass == "true") {
+
+        // $query = "SELECT * FROM BOOKS"; //UNCOMMENT THIS LINE AND ENTER AN ISBN TO SEE ALL RESULTS; MAKE SURE TO COMMENT THE NEXT LINE
+    
+        $query = SELECT_QUERY . FROM_QUERY . "WHERE isbn = :isbn " . WHERE_QUERY;
+        $ps = $con -> prepare($query);
+        $ps -> bindParam(':isbn', $searchTerm);
+        grabBooks($ps);
+        return;
+    }
+    else {
+        
+        $query = SELECT_QUERY . FROM_QUERY . "WHERE books.title = :title " . WHERE_QUERY;
+        $ps = $con -> prepare($query);
+        $ps -> bindParam(':title', $searchTerm);
+    }
+
+    $ps -> execute();
+    $total = count($ps ->fetchAll());
+
+    if($total == 0) { //this means the searching for the book title failed
+        $searchTermArray = preg_split("/\s+/", $searchTerm);
+        $author_first = $searchTermArray[0];
+        $author_last  = $searchTermArray[1];
+
+        $query = SELECT_QUERY . FROM_QUERY . "WHERE books.author_first = :first AND books.author_last = :last " . WHERE_QUERY;
+        $ps = $con -> prepare($query);
+        $ps -> bindParam(':first', $author_first);
+        $ps -> bindParam(':last',  $author_last);
+    }
+    
+    grabBooks($ps);
+}
+
+$javascriptData = getDataFromJavascript();
+$con = makeDataBaseConnection();
+findBooks($javascriptData, $con);
+
 
 ?>
-</body>
-</html>
+
+
 
 
