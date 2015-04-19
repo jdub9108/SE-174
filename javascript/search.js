@@ -13,7 +13,7 @@ function searchForBooks(){
     var isbnResult = isISBN(searchTerm);
 
     if (searchTerm == "") {
-        $(DIV).html("invalid");
+        $(DIV).html("You provided no search :(");
 
     }
     else if(isbnResult.pass) {
@@ -25,6 +25,7 @@ function searchForBooks(){
 
 }
 
+//tutorial from http://www.w3schools.com/php/php_ajax_database.asp
 function makeXMLRequest(searchTerm, isbn) {
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -45,10 +46,10 @@ function makeXMLRequest(searchTerm, isbn) {
 
     if (!isbn) {
         //replace (1 or more spaces) with only 1 space
-        searchTerm = searchTerm.replace(/\s+/g,' ');
+        searchTerm = searchTerm.replace(/\s+/g,' ').trim();
     }
-    var params = "q="+searchTerm+"&i="+isbn;
-    xmlhttp.open("GET","php/search.php?"+params, true);
+    var params = 'q='+searchTerm+'&i='+isbn;
+    xmlhttp.open('GET','php/search.php?'+params, true);
     xmlhttp.send()
 
 }
