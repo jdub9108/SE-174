@@ -60,7 +60,7 @@ CREATE TABLE `books` (
   `image_path` varchar(500) NOT NULL,
   PRIMARY KEY (`book_id`),
   UNIQUE KEY `ISBN` (`isbn`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,7 +69,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,'HTML5 and CSS3 for Dummies','Andy','Harris',2015,1000,9781118289389,'images/bookCovers/html5css3.jpg'),(2,'Practical C Programming','Steve','Oualline',1997,400,9781565923065,''),(3,'Java in Easy Steps','Mike','Mcgrath',2011,100,9781840784435,'images/bookCovers/javaEasySteps.jpg'),(4,'Programming in C# 3.0','Jesse','Liberty',2001,700,9780596527433,''),(5,'JavaScript: The Definitive Guide','David','Flanagan',2001,900,9780596000486,'images/bookCovers/javascriptDefiniteGuide.jpg');
+INSERT INTO `books` VALUES (1,'HTML5 and CSS3 for Dummies','Andy','Harris',2015,1000,9781118289389,'images/bookCovers/html5css3.jpg'),(2,'Practical C Programming','Steve','Oualline',1997,400,9781565923065,''),(3,'Java in Easy Steps','Mike','Mcgrath',2011,100,9781840784435,'images/bookCovers/javaEasySteps.jpg'),(4,'Programming in C# 3.0','Jesse','Liberty',2001,700,9780596527433,''),(5,'JavaScript: The Definitive Guide','David','Flanagan',2001,900,9780596000486,'images/bookCovers/javascriptDefiniteGuide.jpg'),(6,'The Ruby Programming Language','David','Flanagan',2008,448,9780596516178,''),(7,'jQuery Pocket Reference','David','Flanagan',2011,160,9781449397227,'');
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -123,7 +123,7 @@ CREATE TABLE `user_books` (
 
 LOCK TABLES `user_books` WRITE;
 /*!40000 ALTER TABLE `user_books` DISABLE KEYS */;
-INSERT INTO `user_books` VALUES (4,1),(4,2),(5,3),(5,4),(8,5);
+INSERT INTO `user_books` VALUES (4,1),(4,2),(5,3),(5,4),(8,5),(4,6),(5,7);
 /*!40000 ALTER TABLE `user_books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -193,4 +193,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-04-19 15:23:33
+-- Dump completed on 2015-04-21 15:58:24
