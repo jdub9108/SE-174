@@ -3,7 +3,6 @@ const SEARCH_BAR_ID = "#searchBar";
 //the div to display the results
 const DIV = "#searchResults";
 
-
 $(document).ready(function(){}
 );
 
@@ -48,7 +47,10 @@ function makeXMLRequest(searchTerm, isbn) {
         //replace (1 or more spaces) with only 1 space
         searchTerm = searchTerm.replace(/\s+/g,' ').trim();
     }
-    var params = 'q='+searchTerm+'&i='+isbn;
+    //encode the string
+    var query = encodeURIComponent(searchTerm);
+    var params = 'q='+query+'&i='+isbn;
+    
     xmlhttp.open('GET','php/search.php?'+params, true);
     xmlhttp.send()
 
