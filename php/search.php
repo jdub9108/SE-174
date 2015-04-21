@@ -4,12 +4,21 @@
 include 'searchUtils.php';
 include 'header.php';
 
+
+//example query to test
+
+// SELECT title, author_first, author_last, isbn, user_name, year_published, image_path FROM books, user_books, users WHERE (isbn = '9781118289389' OR books.title = '9781118289389' OR (CONCAT (books.author_first, ' ',  books.author_last) = '9781118289389') ) AND books.book_id = user_books.book_id AND users.user_id = user_books.user_id;
+
 define ("SELECT_QUERY", "SELECT title, author_first, author_last, isbn, year_published, pages, user_name, image_path ");
 define ("FROM_QUERY",   "FROM books, user_books, users ");
-define ("WHERE_QUERY",  "AND books.book_id = user_books.book_id AND users.user_id = user_books.user_id ");
+define ("WHERE_QUERY",  "WHERE (isbn = :searchTerm OR books.title = :searchTerm OR (CONCAT (books.author_first, ' ',  books.author_last) = :searchTerm ) ) AND books.book_id = user_books.book_id AND users.user_id = user_books.user_id ");
 define ("BOOKS_PER_COLUMN", 4);
+define ("TABLE_ELEMENT_WIDTH", 210);
+define ("TABLE_ELEMENT_HEIGHT", 150);
 define ("NO_BOOK_COVER", "images/bookCovers/noBookCover.jpg");
 define ("NO_RESULTS", "Your search yield no results :(");
+
+
 
 function createTable($obj_array, $total_books) {
 
@@ -33,6 +42,7 @@ function createTable($obj_array, $total_books) {
     echo '</table>';
 }
 
+
 function createTableElement($book) {
     echo '<td>';
     
@@ -55,7 +65,8 @@ function createTableElement($book) {
     if(empty($image_path)) {
         $image_path = NO_BOOK_COVER;
     }
-    $image_format = sprintf('<img class="bookImage" src="%s" height="210" width="150"> %s', $image_path, $breakTag);
+    $image_format = sprintf('<img class="bookImage" src="%s" height="%d" width="%d"> %s',
+                            $image_path, TABLE_ELEMENT_WIDTH, TABLE_ELEMENT_HEIGHT, $breakTag);
 
     echo $image_format;
     echo $title_format;
@@ -79,22 +90,14 @@ function grabBooks($ps) {
 }
 
 function getDataFromJavascript() {
+    
     // get the search term from javascript
-
     $searchTerm = $_GET['q'];
     if(preg_match("/^\s+$/", $searchTerm)) { //check if the user entered in blank spaces
         echo NO_RESULTS;
         return;
     }
-
-    // check if the search should be for an ISBN
-    if ( isset($_GET['i']) ) { //call the isset method to catch any exceptions
-        $isbnPass = $_GET['i'];
-    }
-    else
-        $isbnPass = "false";
-
-    return array($searchTerm, $isbnPass);
+    return $searchTerm;
 }
 
 function makeDataBaseConnection() {
@@ -104,43 +107,11 @@ function makeDataBaseConnection() {
     return $con;
 }
 
-function findBooks($javascriptData, $con) {
-    
-    $searchTerm = $javascriptData[0];
-    $isbnPass = $javascriptData[1];
-    
-    //here we search for an ISBN
-    if ($isbnPass == "true") {
+function findBooks($userSearch, $con) {
 
-        // $query = "SELECT * FROM BOOKS"; //UNCOMMENT THIS LINE AND ENTER AN ISBN TO SEE ALL RESULTS; MAKE SURE TO COMMENT THE NEXT LINE
-    
-        $query = SELECT_QUERY . FROM_QUERY . "WHERE isbn = :isbn " . WHERE_QUERY;
-        $ps = $con -> prepare($query);
-        $ps -> bindParam(':isbn', $searchTerm);
-        grabBooks($ps);
-        return;
-    }
-    else {
-        
-        $query = SELECT_QUERY . FROM_QUERY . "WHERE books.title = :title " . WHERE_QUERY;
-        $ps = $con -> prepare($query);
-        $ps -> bindParam(':title', $searchTerm);
-    }
-
-    $ps -> execute();
-    $total = count($ps ->fetchAll());
-
-    if($total == 0) { //this means the searching for the book title failed
-        $searchTermArray = preg_split("/\s+/", $searchTerm);
-        $author_first = $searchTermArray[0];
-        $author_last  = $searchTermArray[1];
-
-        $query = SELECT_QUERY . FROM_QUERY . "WHERE books.author_first = :first AND books.author_last = :last " . WHERE_QUERY;
-        $ps = $con -> prepare($query);
-        $ps -> bindParam(':first', $author_first);
-        $ps -> bindParam(':last',  $author_last);
-    }
-    
+    $query = SELECT_QUERY . FROM_QUERY . WHERE_QUERY;
+    $ps = $con -> prepare($query);
+    $ps -> bindParam(':searchTerm', $userSearch);
     grabBooks($ps);
 }
 
@@ -148,9 +119,7 @@ $javascriptData = getDataFromJavascript();
 $con = makeDataBaseConnection();
 findBooks($javascriptData, $con);
 
-
 ?>
-
 
 
 
