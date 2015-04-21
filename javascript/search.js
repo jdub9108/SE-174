@@ -20,8 +20,6 @@ function searchForBooks(){
     }
     else
         makeXMLRequest(searchTerm, false);
-    
-
 }
 
 //tutorial from http://www.w3schools.com/php/php_ajax_database.asp
@@ -47,9 +45,10 @@ function makeXMLRequest(searchTerm, isbn) {
         //replace (1 or more spaces) with only 1 space
         searchTerm = searchTerm.replace(/\s+/g,' ').trim();
     }
+    
     //encode the string
     var query = encodeURIComponent(searchTerm);
-    var params = 'q='+query+'&i='+isbn;
+    var params = 'q='+query;
     
     xmlhttp.open('GET','php/search.php?'+params, true);
     xmlhttp.send()
