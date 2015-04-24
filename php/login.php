@@ -2,8 +2,6 @@
 
 include 'header.php';
 
-showLoginPage();
-
 if(isset($_POST['submit']))
 {
     try
@@ -12,6 +10,7 @@ if(isset($_POST['submit']))
         $username = $_POST['userName'];
         $password = $_POST['password'];
 
+        //db connection
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         	
@@ -28,9 +27,8 @@ if(isset($_POST['submit']))
         //if the array is empty the username is invalid
         if(empty($data))
         {
-            showLoginPage();
             echo "<script type='text/javascript'> alert('You are not registered'); </script>";
-            exit();
+            showLoginPage();
         }    
            
         else
@@ -43,15 +41,15 @@ if(isset($_POST['submit']))
             {
                 $firstname = $data[0]['first_name'];
                 $lastname = $data[0]['last_name'];
-                header("Location: forums.php");
+                // header("Location: ../forums.html");
                 echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
             }
 
             else
             {
-                showLoginPage();
                 echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
-                exit;
+                showLoginPage();
+                exit();
             }
         }
     }
@@ -78,12 +76,12 @@ function showLoginPage()
         <div class='main_div'>
 
         <div class='top-bar'>
-          <a href='index.php'> <img id='logo' src= '../images/book-logo3.png'> </a>
+          <a href='index.html'> <img id='logo' src= '../images/book-logo3.png'> </a>
           <ul>
-            <li> <a href='index.php'> Home </a></li>
-            <li> <a href='login.php'> Login </a></li>
-            <li> <a href='register.php'> Register  </a></li>
-            <li> <a href='about.php'>About</a></li>
+            <li> <a href='../index.html'> Home </a></li>
+            <li> <a href='../login.html'> Login </a></li>
+            <li> <a href='../registration.html'> Register  </a></li>
+              <li> <a href='../about.html'>About</a></li>
          </ul>
         </div>
 
@@ -98,9 +96,9 @@ function showLoginPage()
 
           <div class='user-info' id='login-height'>
             <h2>Sign in</h2>        
-            <form action='login.php' method='post' id='loginForm' onsubmit= 'return validateLogin()''> <!-- Need PHP -->
-              <input type='text' class='inputField loginPage'  name='userName' placeholder='  Username ''>
-              <input type='password' class='inputField loginPage'  name='password' placeholder=' ******** ''>
+            <form action='php/login.php' method='post' id='loginForm' onsubmit= 'return validateLogin()''> <!-- Need PHP -->
+              <input type='text' class='inputField loginPage'  name='userName' placeholder='Username: ''>
+              <input type='password' class='inputField loginPage'  name='password' placeholder='******** ''>
               <button class='request-button' name='submit' type='submit' form= 'loginForm' value= 'submit'> Sign in </button>
             </form>
             
