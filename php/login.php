@@ -27,8 +27,9 @@ if(isset($_POST['submit']))
         //if the array is empty the username is invalid
         if(empty($data))
         {
-            echo "<script type='text/javascript'> alert('You are not registered'); </script>";
-            showLoginPage();
+            //            echo "<script type='text/javascript'> alert('You are not registered'); </script>";
+            // showLoginPage();
+            echo "You are not registered :(" ;
         }    
            
         else
@@ -47,9 +48,10 @@ if(isset($_POST['submit']))
 
             else
             {
-                echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
-                showLoginPage();
-                exit();
+                //                echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
+                //                showLoginPage();
+                //                exit();
+                echo "Invalid login credentials";
             }
         }
     }
