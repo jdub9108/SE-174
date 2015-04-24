@@ -1,6 +1,6 @@
 var PASSWORD_MIN_LENGTH = 8
-var PASSWORD_MAX_LENGTH = 16 //from the database value
-var USERNAME_MIN_LENGTH = 4
+var PASSWORD_MAX_LENGTH = 8 //from the database value
+var USERNAME_MIN_LENGTH = 6
 var USERNAME_MAX_LENGTH = 20 //from the database value 
 
 function validateRegistration(){
@@ -91,7 +91,7 @@ function validatePassword(login){
 function validateUserName(login){
     
     var name = document.getElementsByName("userName")[0].value;
-    var userNameRegex = /^[a-zA-Z]{4,20}/ //20 is the max length of a password from our database
+    var userNameRegex = /^[a-zA-Z0-9_-]{4,25}/ //25 is the max length of the username from our database
     var blankUserNameMessage = "Please provide a user name\n" ;
 
     if(name == ""){

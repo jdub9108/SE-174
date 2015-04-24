@@ -28,7 +28,8 @@ if(isset($_POST['submit']))
         if(empty($data))
         {
             echo "<script type='text/javascript'> alert('You are not registered'); </script>";
-            showLoginPage();
+            exit();
+            //  showLoginPage();
         }    
            
         else
@@ -41,14 +42,15 @@ if(isset($_POST['submit']))
             {
                 $firstname = $data[0]['first_name'];
                 $lastname = $data[0]['last_name'];
-                // header("Location: ../forums.html");
+                header("Location: ../forums.html");
                 echo "<h3> Welcome back to Book Sale $firstname $lastname !</h3>";
             }
 
             else
             {
-                echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
-                showLoginPage();
+                header("Location: ../login.html");
+                //echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
+                //showLoginPage();
                 exit();
             }
         }
