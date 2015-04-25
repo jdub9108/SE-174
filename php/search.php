@@ -66,7 +66,7 @@ function createTableElement($book) {
         $image_path = NO_BOOK_COVER;
     }
     $image_format = sprintf('<img class="bookImage" src="%s" height="%d" width="%d"> %s',
-                            $image_path, TABLE_ELEMENT_WIDTH, TABLE_ELEMENT_HEIGHT, $breakTag);
+                            "../" . $image_path, TABLE_ELEMENT_WIDTH, TABLE_ELEMENT_HEIGHT, $breakTag);
 
     echo $image_format;
     echo $title_format;

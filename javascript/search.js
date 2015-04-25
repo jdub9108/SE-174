@@ -50,7 +50,7 @@ function makeXMLRequest(searchTerm, isbn) {
     var query = encodeURIComponent(searchTerm);
     var params = 'q='+query;
     
-    xmlhttp.open('GET','php/search.php?'+params, true);
+    xmlhttp.open('GET','search.php?'+params, true);
     xmlhttp.send()
 
 }

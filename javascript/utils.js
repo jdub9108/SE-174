@@ -94,7 +94,7 @@ function validatePassword(login){
 function validateUserName(login){
     
     var name = document.getElementsByName("userName")[0].value;
-    var userNameRegex = /^[a-zA-Z]{4,20}/ //20 is the max length of a password from our database
+    var userNameRegex = /^[A-Za-z0-9_-]{4,20}/ //20 is the max length of a password from our database
     var blankUserNameMessage = "Please provide a user name\n" ;
 
     if(name == ""){
