@@ -29,6 +29,6 @@ if(!isset($_SESSION['username']))
 	        <li> <a href='logout.php'> Logout </a></li>
 	      </ul>
 	    </div>
-	    
+
 	</body>
 </html>

@@ -1,3 +1,8 @@
+body {
+    margin: 0px;
+    background-color: white;
+}
+
 .top-bar {
     background: rgb(214, 160, 55);
     color: white;
