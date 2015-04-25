@@ -95,8 +95,6 @@
             echo "<script type='text/javascript'> alert('Sorry, that username is already taken'); </script>";
             exit();
         }
-
-       
         
         $con = null;
     }

@@ -16,10 +16,10 @@
       <div class="top-bar">
 	     <a href="index.html"> <img id="logo" src= "../images/book-logo3.png"> </a>
     		<ul>
-              <li> <a href="index.php">Home</a></li>
-              <li> <a href="login.php">Login</a></li>
-              <li> <a href="register.php">Register</a></li>
-              <li> <a href="about.php">About</a></li>
+          <li> <a href="index.php">Home</a></li>
+          <li> <a href="login.php">Login</a></li>
+          <li> <a href="register.php">Register</a></li>
+          <li> <a href="about.php">About</a></li>
     		</ul>
       </div>
       

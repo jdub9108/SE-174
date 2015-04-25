@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-US">
   <head>
+    <meta charset="UTF-8">
     <title>Login</title>
     <link rel='stylesheet' type='text/css' href='../css/index.css'>
     <link rel='stylesheet' type='text/css' href='../css/header.css'>
@@ -39,7 +40,7 @@
         </form>
         
         <div>
-          <a id='forgotPassword' class='fpr' href='forgotpassword.html'> Forgot Password?</a><!-- change the exntension here -->
+          <a id='forgotPassword' class='fpr' href='forgot_password.php'> Forgot Password?</a>
           <a id='register' class='fpr' href='register.php'>Register</a>
         </div>            
       </div> 
