@@ -31,11 +31,13 @@
         </ul>
       </div>
 
+      <br>
+      <br>
       <div class='user-info' id='login-height'>
         <h2>Sign in</h2>        
         <form action='' method='post' id='loginForm' onsubmit= 'return validateLogin()'> 
-          <input type='text' class='inputField loginPage'  name='userName' placeholder='Username: '>
-          <input type='password' class='inputField loginPage'  name='password' placeholder='******** '>
+          <input type='text' class='inputField loginPage'  name='userName' placeholder='  Username '>
+          <input type='password' class='inputField loginPage'  name='password' placeholder='  ******** '>
           <button class='request-button' name='submit' type='submit' form= 'loginForm' value= 'submit'> Sign in </button>
         </form>
         

@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Forgot Password?</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/header.css">
-    <script src="javascript/utils.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index.css">
+    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <script src="../javascript/utils.js"></script>
   </head> 
   <body>
 
@@ -13,7 +13,7 @@
     <div class="main_div">
       
     <div class="top-bar">
-      <a href="index.php"> <img id="logo" src= "images/book-logo3.png"> </a>
+      <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
       <ul>
         <li> <a href="index.php"> Home </a></li>
         <li> <a href="login.php"> Login </a></li>
@@ -31,10 +31,12 @@
         </ul>
       </div>
 
+      <br>
+      <br>
       <div class="user-info" class="fpr" id="forgot-pw-height" >
       	<h2> Forgot Password?</h2>
       	<form action="" id="ForgotPWform" onsubmit= "validateEmail(false)"> <!-- Need PHP -->
-      	  <input type="text" class="inputField loginPage" name="email" placeholder = "  Email: ">
+      	  <input type="text" class="inputField loginPage" name="email" placeholder = "  Email ">
       	  <button class="request-button" type="submit" form= "ForgotPWform" value= "Submit"> Send Email </button>
       	</form>
       </div>
