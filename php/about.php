@@ -4,14 +4,14 @@
     <link rel="stylesheet" type="text/css" href="../css/index.css">
     <link rel="stylesheet" type="text/css" href="../css/header.css">
     <link rel="stylesheet" type="text/css" href="../css/about.css">
-    <script type="text/javascript" src="javascript/utils.js"></script>
+    <script type="text/javascript" src="../javascript/utils.js"></script>
   </head>
 
   <body>
     <div class="main_div">
 
     <div class="top-bar">
-      <a href="index.html"> <img id="logo" src= "../images/book-logo3.png"> </a>
+      <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
       <ul>
         <li> <a href="index.php">Home</a></li>
         <li> <a href="login.php">Login</a></li>
