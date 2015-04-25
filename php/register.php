@@ -42,8 +42,6 @@
         </ul>
       </div>
 
-      <br>
-      <br>
       <div class="user-info" id="registration-height">
         <h2>Register</h2>       
         <form action="" id="registrationForm" name="registrationForm" method="post" onsubmit="return validateRegistration()">

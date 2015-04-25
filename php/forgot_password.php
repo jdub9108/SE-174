@@ -8,8 +8,6 @@
     <script src="../javascript/utils.js"></script>
   </head> 
   <body>
-
-
     <div class="main_div">
       
     <div class="top-bar">
@@ -31,8 +29,6 @@
         </ul>
       </div>
 
-      <br>
-      <br>
       <div class="user-info" class="fpr" id="forgot-pw-height" >
       	<h2> Forgot Password?</h2>
       	<form action="" id="ForgotPWform" onsubmit= "validateEmail(false)"> <!-- Need PHP -->

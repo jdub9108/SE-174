@@ -31,12 +31,10 @@
         </ul>
       </div>
 
-      <br>
-      <br>
       <div class='user-info' id='login-height'>
         <h2>Sign in</h2>        
         <form action='' method='post' id='loginForm' onsubmit= 'return validateLogin()'> 
-          <input type='text' class='inputField loginPage'  name='userName' placeholder='  Username '>
+          <input type='text' class='inputField loginPage'  name='userName' placeholder='  Username: '>
           <input type='password' class='inputField loginPage'  name='password' placeholder='  ******** '>
           <button class='request-button' name='submit' type='submit' form= 'loginForm' value= 'submit'> Sign in </button>
         </form>
@@ -50,6 +48,13 @@
       <?php
 
       include 'header.php';
+
+      session_start();
+
+      if(isset($_SESSION['username'])) 
+      {
+        header('Location: forums.php');
+      }
 
       if(isset($_POST['submit']))
       {
@@ -87,6 +92,7 @@
                   {
                       $firstname = $data[0]['first_name'];
                       $lastname = $data[0]['last_name'];
+                      $_SESSION['username'] = $_POST['userName'];
                       header("Location: forums.php");
                   }
 
