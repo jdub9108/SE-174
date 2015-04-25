@@ -9,6 +9,26 @@ if(!isset($_SESSION['username']))
 	header('Location: index.php');
 }
 
-echo "Welcome back ". $_SESSION['username'] . "!!";
-
+//for testing purposes
+//echo "Welcome back ". $_SESSION['username'] . "!!";
 ?>
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+	<head>
+		<meta charset="UTF-8">
+    	<title>Forums</title>
+    	<link rel='stylesheet' type='text/css' href='../css/header.css'>
+	</head>
+
+	<body>
+		<!-- header -->
+		<div class='top-bar'>
+	      <ul>
+	        <li> <a href='logout.php'> Logout </a></li>
+	      </ul>
+	    </div>
+	    
+	</body>
+</html>

@@ -1,12 +1,9 @@
 <?php
 
-include 'header.php'
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+include 'header.php';
 
-    session_start();
-    session_destroy();
-    header('Location: index.html');
+session_start();
+session_destroy();
+header('Location: index.php');
+
 ?>
