@@ -60,9 +60,15 @@
 
     include 'header.php';
 
+    session_start();
+
     if(isset($_POST['submit']))
     {
+        register();
+    }
 
+    function register()
+    {
         $email = $_POST['email'];
         $password = $_POST['password'];
         $first_name = $_POST['firstName'];
@@ -86,8 +92,8 @@
             $prepared_statement->bindValue(':books_bought', 0, PDO::PARAM_INT);
             $prepared_statement->execute();
 
+            $_SESSION['username'] = $_POST['userName'];
             header("Location: forums.php");
-            exit();
         } 
 
         catch (Exception $e) 

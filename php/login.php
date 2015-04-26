@@ -81,8 +81,6 @@
               $ps->execute(array(':username' => $username));
               $data = $ps-> fetchAll(PDO::FETCH_ASSOC);
           
-              $con = null;
-          
               //if the array is empty the username is invalid
               if(empty($data))
               {
@@ -116,6 +114,8 @@
           {
               echo "Error: " .$ex->getMessage();
           }
+
+          $con = null;
       }
 
       ?>
