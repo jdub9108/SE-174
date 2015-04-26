@@ -94,7 +94,7 @@
                   $db_password = $data[0]['password'];
               
                   //redirect to forums
-                  if($db_password == $password)
+                  if($db_password == password_verify($password, $db_password))
                   {
                       $firstname = $data[0]['first_name'];
                       $lastname = $data[0]['last_name'];
