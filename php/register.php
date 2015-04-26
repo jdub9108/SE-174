@@ -70,7 +70,7 @@
     function register()
     {
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $crypt = better_crypt($_POST['password']);
         $first_name = $_POST['firstName'];
         $last_name = $_POST['lastName'];
         $email=$_POST['email'];
@@ -87,7 +87,7 @@
             $prepared_statement->bindValue(':user_name', $user_name, PDO::PARAM_STR);
             $prepared_statement->bindValue(':last_name', $last_name, PDO::PARAM_STR);
             $prepared_statement->bindValue(':email', $email, PDO::PARAM_STR);
-            $prepared_statement->bindValue(':password', $password, PDO::PARAM_STR);
+            $prepared_statement->bindValue(':password', $crypt, PDO::PARAM_STR);
             $prepared_statement->bindValue(':books_sold', 0, PDO::PARAM_INT);
             $prepared_statement->bindValue(':books_bought', 0, PDO::PARAM_INT);
             $prepared_statement->execute();
@@ -103,6 +103,17 @@
         }
         
         $con = null;
+    }
+    
+    //encryption algorithm
+    function better_crypt($input, $rounds = 7)
+    {
+      $salt = "";
+      $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
+      for($i=0; $i < 22; $i++) {
+        $salt .= $salt_chars[array_rand($salt_chars)];
+      }
+      return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
     }
 ?>
 
