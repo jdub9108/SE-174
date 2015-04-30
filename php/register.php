@@ -81,7 +81,7 @@
 
         try
         {   
-            $query = "insert into users values(null, :first_name, :user_name, :last_name, :email,  :password, :books_sold, :books_bought);";
+            $query = "insert into users values(null, :first_name, :user_name, :last_name, :email, :password, :books_sold, :books_bought);";
             $prepared_statement = $con->prepare($query);        
             $prepared_statement->bindValue(':first_name', $first_name, PDO::PARAM_STR);
             $prepared_statement->bindValue(':user_name', $user_name, PDO::PARAM_STR);
@@ -108,12 +108,12 @@
     //encryption algorithm
     function better_crypt($input, $rounds = 7)
     {
-      $salt = "";
-      $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
-      for($i=0; $i < 22; $i++) {
-        $salt .= $salt_chars[array_rand($salt_chars)];
-      }
-      return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
+        $salt = "";
+        $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
+        for($i=0; $i < 22; $i++) {
+          $salt .= $salt_chars[array_rand($salt_chars)];
+        }
+        return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
     }
 ?>
 

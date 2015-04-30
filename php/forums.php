@@ -9,8 +9,6 @@ if(!isset($_SESSION['username']))
 	header('Location: index.php');
 }
 
-//for testing purposes
-//echo "Welcome back ". $_SESSION['username'] . "!!";
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +21,12 @@ if(!isset($_SESSION['username']))
 	</head>
 
 	<body>
-		<!-- header -->
 		<div class='top-bar'>
-	      <ul>
-	        <li> <a href='logout.php'> Logout </a></li>
+	      <ul id='drop-down menu'>
+	        <li> 
+	        	<a href='logout.php'> <?php echo $_SESSION['username']; ?> </a>
+	        </li>
 	      </ul>
 	    </div>
-
 	</body>
 </html>

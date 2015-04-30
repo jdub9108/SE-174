@@ -68,7 +68,6 @@
       {
           try
           {
-              // Define $email and $password
               $username = $_POST['userName'];
               $password = $_POST['password'];
 
@@ -77,9 +76,10 @@
                 
               $query = "SELECT first_name, last_name, password FROM users WHERE user_name = :username";
               $ps = $con->prepare($query);
+              $ps->bindValue(':username', $username, PDO::PARAM_STR);
+              $ps->execute();
 
-              $ps->execute(array(':username' => $username));
-              $data = $ps-> fetchAll(PDO::FETCH_ASSOC);
+              $data = $ps->fetchAll(PDO::FETCH_ASSOC);
           
               //if the array is empty the username is invalid
               if(empty($data))
@@ -94,7 +94,7 @@
                   $db_password = $data[0]['password'];
               
                   //redirect to forums
-                  if($db_password == passwordVerify($password, $db_password))
+                  if($db_password == password_verify($password, $db_password))
                   {
                       $firstname = $data[0]['first_name'];
                       $lastname = $data[0]['last_name'];
@@ -118,9 +118,17 @@
           $con = null;
       }
 
-      function passwordVerify($password, $db_password)
+      function better_crypt($input, $rounds = 7)
       {
-          return $password == $db_password;
+          $salt = "";
+          $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
+
+          for($i=0; $i < 22; $i++)
+          {
+              $salt .= $salt_chars[array_rand($salt_chars)];
+          }
+
+          return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
       }
 
       ?>
