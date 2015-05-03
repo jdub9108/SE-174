@@ -17,16 +17,21 @@ if(!isset($_SESSION['username']))
 	<head>
 		<meta charset="UTF-8">
     	<title>Forums</title>
-    	<link rel='stylesheet' type='text/css' href='../css/header.css'>
+    	<link rel='stylesheet' type='text/css' href='../css/forums.css'>
 	</head>
 
 	<body>
-		<div class='top-bar'>
-	      <ul id='drop-down menu'>
-	        <li> 
-	        	<a href='logout.php'> <?php echo $_SESSION['username']; ?> </a>
+		<header>
+			<div class='top-bar'>
+	      <ul>
+	        <li> <?php echo $_SESSION['username']; ?> 
+	        	<ul>
+	        		<li> Settings </li>
+	        		<li><a href='logout.php'> Logout </a></li>
+	        	</ul>
 	        </li>
 	      </ul>
-	    </div>
+		  </div>
+	  </header>
 	</body>
 </html>

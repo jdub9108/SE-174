@@ -47,89 +47,89 @@
 
       <?php
 
-      include 'header.php';
+        include 'header.php';
 
-      session_start();
+        session_start();
 
-      if(isset($_SESSION['username'])) 
-      {
-        header('Location: forums.php');
-      }
+        if(isset($_SESSION['username'])) 
+        {
+          header('Location: forums.php');
+        }
 
-      else
-      {
-          if(isset($_POST['submit']))
-          {
-              authenticate();
-          }
-      }
+        else
+        {
+            if(isset($_POST['submit']))
+            {
+                authenticate();
+            }
+        }
 
-      function authenticate()
-      {
-          try
-          {
-              $username = $_POST['userName'];
-              $password = $_POST['password'];
+        function authenticate()
+        {
+            try
+            {
+                $username = $_POST['userName'];
+                $password = $_POST['password'];
 
-              $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
-              $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
+                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                  
+                $query = "SELECT first_name, last_name, password FROM users WHERE user_name = :username";
+                $ps = $con->prepare($query);
+                $ps->bindValue(':username', $username, PDO::PARAM_STR);
+                $ps->execute();
+
+                $data = $ps->fetchAll(PDO::FETCH_ASSOC);
+            
+                //if the array is empty the username is invalid
+                if(empty($data))
+                {
+                    echo "<script type='text/javascript'> alert('You are not registered'); </script>";
+                    exit();
+                }    
+                   
+                else
+                {
+                    //Get the correct password from the database
+                    $db_password = $data[0]['password'];
                 
-              $query = "SELECT first_name, last_name, password FROM users WHERE user_name = :username";
-              $ps = $con->prepare($query);
-              $ps->bindValue(':username', $username, PDO::PARAM_STR);
-              $ps->execute();
+                    //redirect to forums
+                    if($db_password == password_verify($password, $db_password))
+                    {
+                        $firstname = $data[0]['first_name'];
+                        $lastname = $data[0]['last_name'];
+                        $_SESSION['username'] = $_POST['userName'];
+                        header("Location: forums.php");
+                    }
 
-              $data = $ps->fetchAll(PDO::FETCH_ASSOC);
-          
-              //if the array is empty the username is invalid
-              if(empty($data))
-              {
-                  echo "<script type='text/javascript'> alert('You are not registered'); </script>";
-                  exit();
-              }    
-                 
-              else
-              {
-                  //Get the correct password from the database
-                  $db_password = $data[0]['password'];
-              
-                  //redirect to forums
-                  if($db_password == password_verify($password, $db_password))
-                  {
-                      $firstname = $data[0]['first_name'];
-                      $lastname = $data[0]['last_name'];
-                      $_SESSION['username'] = $_POST['userName'];
-                      header("Location: forums.php");
-                  }
+                    else
+                    {
+                        echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
+                        exit();
+                    }
+                }
+            }
 
-                  else
-                  {
-                      echo "<script type='text/javascript'> alert('Invalid login credentials'); </script>";
-                      exit();
-                  }
-              }
-          }
+            catch(PDOException $ex)
+            {
+                echo "Error: " .$ex->getMessage();
+            }
 
-          catch(PDOException $ex)
-          {
-              echo "Error: " .$ex->getMessage();
-          }
+            $con = null;
+        }
 
-          $con = null;
-      }
+        function better_crypt($input, $rounds = 7)
+        {
+            $salt = "";
+            $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
 
-      function better_crypt($input, $rounds = 7)
-      {
-          $salt = "";
-          $salt_chars = array_merge(range('A','Z'), range('a','z'), range(0,9));
+            for($i=0; $i < 22; $i++)
+            {
+                $salt .= $salt_chars[array_rand($salt_chars)];
+            }
 
-          for($i=0; $i < 22; $i++)
-          {
-              $salt .= $salt_chars[array_rand($salt_chars)];
-          }
-
-          return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
-      }
+            return crypt($input, sprintf('$2a$%02d$', $rounds) . $salt);
+        }
 
       ?>
   </body>
