@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -14,11 +15,13 @@
         
       <!-- top menu bar -->
       <div class="top-bar">
-	     <a href="index.html"> <img id="logo" src= "../images/book-logo3.png"> </a>
+	     <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
     		<ul>
           <li> <a href="index.php">Home</a></li>
+          <?php if(!isset($_SESSION['username'])) { ?>
           <li> <a href="login.php">Login</a></li>
           <li> <a href="register.php">Register</a></li>
+          <?php } ?>
           <li> <a href="about.php">About</a></li>
     		</ul>
       </div>
