@@ -160,7 +160,7 @@
         }
 
         $query .= ' WHERE Username = '.$_SESSION['username'];
-        
+        echo $query;
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

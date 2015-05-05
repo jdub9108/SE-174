@@ -146,9 +146,9 @@ function validateLogin(){
 function validateEditProfile(){
     var message = "";
     
-    if(document.getElementsByName("password")[0].value != "" && document.getElementsByName("email")[0].value != "" && document.getElementsByName("userName")[0].value != "" && document.getElementsByName("firstName")[0].value != "" &&
-      document.getElementsByName("lastName")[0].value != "")
-        message += "At least one of the fields must be filled in.";
+    if(document.getElementsByName("password")[0].value == "" && document.getElementsByName("email")[0].value == "" && document.getElementsByName("userName")[0].value == "" && document.getElementsByName("firstName")[0].value == "" &&
+      document.getElementsByName("lastName")[0].value == "")
+        message += "Please fill in at least one of the fields.";
     else
     {
         if(document.getElementsByName("password")[0].value != "")
