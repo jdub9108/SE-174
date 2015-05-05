@@ -146,12 +146,18 @@ function validateLogin(){
 function validateEditProfile(){
     var message = "";
     
-    message += validateName((document.getElementsByName("firstName")[0].value), true);
-    message += validateName((document.getElementsByName("lastName")[0].value), false);
-
-    message += validatePassword(false);
-    message += validateEmail(true);
-    message += validateUserName(false);
+    if(document.getElementsByName("password")[0].value != "" && document.getElementsByName("email")[0].value != "" && document.getElementsByName("userName")[0].value != "" && document.getElementsByName("firstName")[0].value != "" &&
+      document.getElementsByName("lastName")[0].value != "")
+        message += "At least one of the fields must be filled in.";
+    else
+    {
+        if(document.getElementsByName("password")[0].value != "")
+            message += validatePassword(false);
+        if(document.getElementsByName("email")[0].value != "")
+            message += validateEmail(true);
+        if(document.getElementsByName("userName")[0].value != "")
+            message += validateUserName(false);
+    }
     
     if(message != ""){
         

@@ -61,14 +61,14 @@
               <?php displayProfile(); ?>
             </ul>
         </div>
-        <form action="" id="editForm" name="editForm" method="post" > <!-- onsubmit="return validateRegistration()" -->
+        <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateEditProfile()" >
           <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
           <input type="text" class="inputField editPage" name="lastName" placeholder="  Last Name: Smith" >
           <input type="text" class="inputField editPage" name="email" placeholder="  Email: john.smith@example.com" >
           <input type="text" class="inputField editPage" name="userName" placeHolder= " Username:  JSmith123" > 
           <input type="password" class="inputField editPage" name="password" placeholder= "  Password" >
           <input type="password" class="inputField editPage" name="repeatPassword" placeholder= "  Repeat Password" >
-          <button class="request-button" type="submit" form="registrationForm" name="submit" value="submit"> Update! </button>
+          <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
         </form>
         <div>
           <a href="DeleteAccount.php"> Delete Account </a>
