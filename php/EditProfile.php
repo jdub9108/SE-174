@@ -5,6 +5,7 @@
     }
     include 'header.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -12,7 +13,7 @@
     <title>Edit Profile</title>
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/header.css">
+    <link rel="stylesheet" type="text/css" href="../css/forums.css">
     <script src="../javascript/utils.js"></script>
   </head>   
 
@@ -20,37 +21,14 @@
     <div class="main_div">
       
       <div class="top-bar">
-        <div>
-          <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
-        </div>
         <ul>
           <li> <a href="index.php"> Home </a></li>
-          <li> <a href="about.php">About</a></li>
           <li> <?php echo $_SESSION['username']; ?> 
-                <ul>
-                        <li><a href='EditProfile.php'> Edit Profile </a></li>
-                        <li> Settings </li>
-                        <li><a href='logout.php'> Logout </a></li>
-                </ul>
+            <ul>
+              <li><a href='EditProfile.php'> Edit Profile </a></li>
+              <li><a href='logout.php'> Logout </a></li>
+            </ul>
           </li>
-        </ul>
-      </div>
-     <!-- <img id="banner" src= "images/booksalesjsu.png"> -->
-      
-      <!-- menu bar
-      <nav class="menu_bar">
-        <a href="index.html">Home</a>
-        <a href="">Browse</a>
-        <a href="index.html#RecentlyAdded">Recently Added</a>
-        <a href="login.html">Login</a>
-      </nav> -->
-      
-      <div class="v-menu-bar-div">
-        <ul class="vertical-menu-bar">
-          <li class="v-menu-a"> <a href="">About</a> </li> 
-          <li class="v-menu-a"> <a href="">Contact Us</a> </li> 
-          <li class="v-menu-a"> <a href="">Lorum Ipsum</a> </li>
-          <li class="v-menu-a"> <a href="http://www.sjsu.edu">SJSU</a> </li>
         </ul>
       </div>
      
