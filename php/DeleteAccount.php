@@ -1,8 +1,7 @@
 <?php
 
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * Removes the account and logs you out
  */
 include 'header.php';
 

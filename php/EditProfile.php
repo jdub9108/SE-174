@@ -53,15 +53,14 @@
           <li class="v-menu-a"> <a href="http://www.sjsu.edu">SJSU</a> </li>
         </ul>
       </div>
-      
-      <div class="profile-display">
-        <ul>
-          <?php displayProfile(); ?>
-        </ul>
-      </div>
-
+     
       <div class="user-info" id="registration-height">
         <h2>Update Information</h2>       
+        <div class="profile-display">
+            <ul>
+              <?php displayProfile(); ?>
+            </ul>
+        </div>
         <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateRegistration()">
           <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
           <input type="text" class="inputField editPage" name="lastName" placeholder="  Last Name: Smith" >
@@ -71,7 +70,11 @@
           <input type="password" class="inputField editPage" name="repeatPassword" placeholder= "  Repeat Password" >
           <button class="request-button" type="submit" form="registrationForm" name="submit" value="submit"> Update! </button>
         </form>
-      </div>        
+        <div>
+          <a href="DeleteAccount.php"> Delete Account </a>
+        </div>
+      </div>
+      
     </div>  
 
     <?php
