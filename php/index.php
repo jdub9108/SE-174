@@ -17,12 +17,21 @@
       <div class="top-bar">
 	     <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
     		<ul>
-          <li> <a href="index.php">Home</a></li>
-          <?php if(!isset($_SESSION['username'])) { ?>
-          <li> <a href="login.php">Login</a></li>
-          <li> <a href="register.php">Register</a></li>
-          <?php } ?>
-          <li> <a href="about.php">About</a></li>
+                    <li> <a href="index.php">Home</a></li>
+                    <?php if(!isset($_SESSION['username'])) { ?>
+                    <li> <a href="login.php">Login</a></li>
+                    <li> <a href="register.php">Register</a></li>
+                    <?php } //else ?>
+                    <li> <a href="about.php">About</a></li>
+                    <?php // { ?>
+                    <!-- not ready with css yet <li> <?php// echo $_SESSION['username']; ?> 
+                        <ul>
+                            <li><a href='EditProfile.php'> Edit Profile </a></li>
+                            <li> Settings </li>
+                            <li><a href='logout.php'> Logout </a></li>
+                        </ul>
+                    </li> -->
+                    <?php //} ?>
     		</ul>
       </div>
       

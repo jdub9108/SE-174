@@ -26,7 +26,8 @@ if(!isset($_SESSION['username']))
 	      <ul>
 	        <li> <?php echo $_SESSION['username']; ?> 
 	        	<ul>
-	        		<li> Settings </li>
+	        		<li><a href='EditProfile.php'> Edit Profile </a></li>
+                                <li> Settings </li>
 	        		<li><a href='logout.php'> Logout </a></li>
 	        	</ul>
 	        </li>
