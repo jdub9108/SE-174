@@ -115,11 +115,11 @@
     
     function editProfile()
     {
-        $pass = $_POST['password'];
         $first_name = $_POST['firstName'];
         $last_name = $_POST['lastName'];
-        $email=$_POST['email'];
         $user_name = $_POST['userName'];
+        $email=$_POST['email'];
+        $pass = $_POST['password'];
         $userChanged = FALSE;
         
         $str = "UPDATE users ";
@@ -133,12 +133,12 @@
         }
         if ($last_name != '')
         {
-            $contains[] = "nast_name = :last_name";
+            $contains[] = "last_name = :last_name";
             $bind['last_name'] = $last_name;
         }
         if ($user_name != '')
         {
-            $contains[] = "username = :username";
+            $contains[] = "user_name = :user_name";
             $bind['user_name'] = $user_name;
             $userChanged = TRUE;
         }
@@ -151,7 +151,7 @@
         {
             $crypt = better_crypt($_POST['password']);
             $bind['password'] = $crypt;
-            $contains[] = "Password = :password";
+            $contains[] = "password = :password";
         }
         
         $query = $str;
@@ -159,8 +159,7 @@
            $query .= " SET " . implode(', ', $contains);
         }
 
-        $query .= ' WHERE Username = '.$_SESSION['username'];
-        echo $query;
+        $query .= " WHERE user_name = '" . $_SESSION['username']. "' ";
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -185,6 +184,7 @@
         }
         
         $con = null;
+        header("location: EditProfile.php");
     }
     
     //encryption algorithm
