@@ -61,7 +61,7 @@
               <?php displayProfile(); ?>
             </ul>
         </div>
-        <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateRegistration()">
+        <form action="" id="editForm" name="editForm" method="post" > <!-- onsubmit="return validateRegistration()" -->
           <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
           <input type="text" class="inputField editPage" name="lastName" placeholder="  Last Name: Smith" >
           <input type="text" class="inputField editPage" name="email" placeholder="  Email: john.smith@example.com" >
@@ -115,35 +115,73 @@
     
     function editProfile()
     {
-        $email = $_POST['email'];
-        $crypt = better_crypt($_POST['password']);
+        $pass = $_POST['password'];
         $first_name = $_POST['firstName'];
         $last_name = $_POST['lastName'];
         $email=$_POST['email'];
         $user_name = $_POST['userName'];
+        $userChanged = FALSE;
+        
+        $str = "UPDATE users ";
+        $contains = array();
+        $bind = array();
 
+        if ($first_name != '')
+        {
+             $contains[] = "first_name = :first_name";
+             $bind['first_name'] = $first_name;
+        }
+        if ($last_name != '')
+        {
+            $contains[] = "nast_name = :last_name";
+            $bind['last_name'] = $last_name;
+        }
+        if ($user_name != '')
+        {
+            $contains[] = "username = :username";
+            $bind['user_name'] = $user_name;
+            $userChanged = TRUE;
+        }
+        if ($email != '')
+        {
+            $contains[] = "email = :email";
+            $bind['email'] = $email;
+        }
+        if ($pass != '')
+        {
+            $crypt = better_crypt($_POST['password']);
+            $bind['password'] = $crypt;
+            $contains[] = "Password = :password";
+        }
+        
+        $query = $str;
+        if (count($contains) > 0) {
+           $query .= " SET " . implode(', ', $contains);
+        }
+
+        $query .= ' WHERE Username = '.$_SESSION['username'];
+        
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         try
         {   
-            $query = "insert into users values(null, :first_name, :user_name, :last_name, :email, :password, :books_sold, :books_bought);";
             $prepared_statement = $con->prepare($query);        
-            $prepared_statement->bindValue(':first_name', $first_name, PDO::PARAM_STR);
-            $prepared_statement->bindValue(':user_name', $user_name, PDO::PARAM_STR);
-            $prepared_statement->bindValue(':last_name', $last_name, PDO::PARAM_STR);
-            $prepared_statement->bindValue(':email', $email, PDO::PARAM_STR);
-            $prepared_statement->bindValue(':password', $crypt, PDO::PARAM_STR);
+            foreach ($bind as $key => $value) {
+                $prepared_statement->bindValue(':'.$key, $value, PDO::PARAM_STR);// use for each
+            }    
             $prepared_statement->execute();
-
-            $_SESSION['username'] = $_POST['userName'];
-            header("Location: forums.php");
         } 
 
         catch (Exception $e) 
         {
-            echo "<script type='text/javascript'> alert('Sorry, that username is already taken'); </script>";
+            echo "<script type='text/javascript'> alert('Sorry, profile unable to update'); </script>";
             exit();
+        }
+        
+        if($userChanged)
+        {
+            $_SESSION['username'] = $user_name;
         }
         
         $con = null;
