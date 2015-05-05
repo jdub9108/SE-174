@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 26, 2015 at 03:44 AM
+-- Generation Time: May 05, 2015 at 05:41 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `books_sold` int(10) NOT NULL,
   `books_bought` int(10) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `users`
@@ -128,7 +128,7 @@ INSERT INTO `users` (`user_id`, `first_name`, `user_name`, `last_name`, `email`,
 (6, 'Calvin', 'calvinh', 'Ha', 'cha@gmail.com', 'aaaaaaaa', 0, 0),
 (7, 'Jordan', 'jordanw', 'Watts', 'jwatts@gmail.com', 'aaaaaaaa', 0, 0),
 (8, 'Zachary', 'zmartin08', 'Martin', 'zmartin@gmail.com', 'ogpU72Vvjobevc', 0, 0),
-(12, 'Jordan', 'jdub9108', 'Watts', 'Jdub9108@gmail.com', '$2a$07$4Y3ypRSklUDyGNYGbFHFNuFi2DMYmL4ZCFgLwnVRnVw9OdrHQ5/DK', 0, 0);
+(13, 'Jordan', 'jdub9108', 'Watts', 'Jdub9108@gmail.com', '$2a$07$3dDf5wdQmHJ4wcuEYh4lSerBZVxnIl4Ok4ToutHFK9tRdN97KS1e.', 0, 0);
 
 -- --------------------------------------------------------
 
