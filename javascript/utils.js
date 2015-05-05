@@ -142,3 +142,23 @@ function validateLogin(){
     return true;
     
 }
+
+function validateEditProfile(){
+    var message = "";
+    
+    message += validateName((document.getElementsByName("firstName")[0].value), true);
+    message += validateName((document.getElementsByName("lastName")[0].value), false);
+
+    message += validatePassword(false);
+    message += validateEmail(true);
+    message += validateUserName(false);
+    
+    if(message != ""){
+        
+        message = "Errors: \n\n" + message;
+        alert (message);
+        return false; //return false so the PHP file doesn't run
+    }
+    return true;
+    
+}
