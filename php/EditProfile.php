@@ -33,27 +33,26 @@ include 'header.php';
         </ul>
       </div>
      
-      <h2>Settings</h2>    
       <div class="user-info" id="registration-height">
+      <h2>Settings</h2>    
         <div class="profile-display">
           <ul>
-            <?php displayProfile(); ?>
+        <?php displayProfile(); ?>
           </ul>
         </div>
         <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateEditProfile()" >
-          <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
-          <input type="text" class="inputField editPage" name="lastName" placeholder="  Last Name: Smith" >
-          <input type="text" class="inputField editPage" name="email" placeholder="  Email: john.smith@example.com" >
-          <input type="text" class="inputField editPage" name="userName" placeHolder= " Username:  JSmith123" > 
-          <input type="password" class="inputField editPage" name="password" placeholder= "  Password" >
-          <input type="password" class="inputField editPage" name="repeatPassword" placeholder= "  Repeat Password" >
+          <input type="text" class="inputField registrationPage" name="firstName" placeholder="Change First Name" >
+          <input type="text" class="inputField registrationPage" name="lastName" placeholder="  Change Last Name" >
+          <input type="text" class="inputField registrationPage" name="email" placeholder=" Change Email" >
+          <input type="text" class="inputField registrationPage" name="userName" placeHolder= " Change Username" > 
+          <input type="password" class="inputField registrationPage" name="password" placeholder= "  Change Password" >
+          <input type="password" class="inputField registrationPage" name="repeatPassword" placeholder= "  Repeat Password" >
           <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
         </form>
-        <div>
-          <a href="DeleteAccount.php"> Delete Account </a>
-        </div>
+        <form action='DeleteAccount.php' name="deleteForm"> 
+          <button class="delete-button" type="submit" form="deleteForm"> Delete? </button>
+        </form>
       </div>
-      
     </div>  
 
     <?php
