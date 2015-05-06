@@ -1,14 +1,7 @@
 <?php
 
 include 'header.php';
-
-session_start();
-
-if(!isset($_SESSION['username'])) 
-{
-	header('Location: index.php');
-}
-
+include 'checkIfLoggedIn.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +43,7 @@ if(!isset($_SESSION['username']))
       <div class='book-info' id='add-book-height'>
         <h2>Add Book </h2>        
         <form action='AddBook.php' method='post' id='addBookForm'> <!-- add js and php here -->
-          <input type='text' class='inputField addBookPage'  name='userName' placeholder='  Title '>
+          <input type='text' class='inputField addBookPage'  name='title' placeholder='  Title '>
           <input type='text' class='inputField addBookPage'  name='authorFirst' placeholder='  Author First '>
           <input type='text' class='inputField addBookPage'  name='authorLast' placeholder='  Author Last '>
           <input type='text' class='inputField addBookPage'  name='yearPublished' placeholder='  Year Published '>
