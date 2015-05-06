@@ -49,9 +49,7 @@ include 'header.php';
           <input type="password" class="inputField registrationPage" name="repeatPassword" placeholder="Repeat Password" >
           <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
         </form>
-        <form action='DeleteAccount.php' name="deleteForm"> 
-          <button class="delete-button" type="submit" form="deleteForm"> Delete? </button>
-        </form>
+        <button class="delete-button" onclick="window.location='DeleteAccount.php';">Delete?</button>
       </div>
     </div>  
 
