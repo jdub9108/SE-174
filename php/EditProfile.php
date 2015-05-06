@@ -1,9 +1,11 @@
 <?php session_start();
+
+include 'header.php';
+
     if(!isset($_SESSION['username']))
     {
         header('Location: index.php');
     }
-    include 'header.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,25 +21,24 @@
 
   <body>
     <div class="main_div">
-      
       <div class="top-bar">
         <ul>
           <li> <a href="index.php"> Home </a></li>
           <li> <?php echo $_SESSION['username']; ?> 
             <ul>
-              <li><a href='EditProfile.php'> Edit Profile </a></li>
+              <li><a href='EditProfile.php'> Settings </a></li>
               <li><a href='logout.php'> Logout </a></li>
             </ul>
           </li>
         </ul>
       </div>
      
+      <h2>Settings</h2>    
       <div class="user-info" id="registration-height">
-        <h2>Update Information</h2>       
         <div class="profile-display">
-            <ul>
-              <?php displayProfile(); ?>
-            </ul>
+          <ul>
+            <?php displayProfile(); ?>
+          </ul>
         </div>
         <form action="" id="editForm" name="editForm" method="post" > <!-- onsubmit="return validateRegistration()" -->
           <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
@@ -79,9 +80,8 @@
             echo '<li> Last Name: '. $result['last_name'] . '</li>';
             echo '<li> Userame: '. $result['user_name'] . '</li>';
             echo '<li> Email: '. $result['email'] . '</li>';
-            
-            
         } 
+
         catch (Exception $e) 
         {
             echo "<script type='text/javascript'> alert('Sorry, there is no account information'); </script>";
