@@ -35,18 +35,18 @@ include 'header.php';
      
       <div class="user-info" id="registration-height">
       <h2>Settings</h2>    
-        <div class="profile-display">
-          <ul>
+        <div class="profile-display-div">
+          <ul class= "profile-display">
         <?php displayProfile(); ?>
           </ul>
         </div>
         <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateEditProfile()" >
           <input type="text" class="inputField registrationPage" name="firstName" placeholder="Change First Name" >
-          <input type="text" class="inputField registrationPage" name="lastName" placeholder="  Change Last Name" >
-          <input type="text" class="inputField registrationPage" name="email" placeholder=" Change Email" >
-          <input type="text" class="inputField registrationPage" name="userName" placeHolder= " Change Username" > 
-          <input type="password" class="inputField registrationPage" name="password" placeholder= "  Change Password" >
-          <input type="password" class="inputField registrationPage" name="repeatPassword" placeholder= "  Repeat Password" >
+          <input type="text" class="inputField registrationPage" name="lastName" placeholder="Change Last Name" >
+          <input type="text" class="inputField registrationPage" name="email" placeholder="Change Email" >
+          <input type="text" class="inputField registrationPage" name="userName" placeHolder= "Change Username" > 
+          <input type="password" class="inputField registrationPage" name="password" placeholder= "Change Password" >
+          <input type="password" class="inputField registrationPage" name="repeatPassword" placeholder="Repeat Password" >
           <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
         </form>
         <form action='DeleteAccount.php' name="deleteForm"> 

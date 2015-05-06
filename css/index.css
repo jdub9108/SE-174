@@ -88,6 +88,17 @@ body {
     color: white;
 }
 
+/**Profile Display **/
+.profile-display-div {
+    overflow: hidden;
+    float: center;
+}
+
+.profile-display > li{
+    list-style: none;
+    text-align: left;
+}
+
 /** vertical menu bar div  **/ 
 
 .v-menu-bar-div {
