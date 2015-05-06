@@ -33,7 +33,7 @@ include 'header.php';
         </ul>
       </div>
      
-      <div class="user-info" id="registration-height">
+      <div class="user-info" id="settings-height">
       <h2>Settings</h2>    
         <div class="profile-display-div">
           <ul class= "profile-display">

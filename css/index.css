@@ -218,6 +218,10 @@ body {
 
 
 #registration-height{ 
+    height: 680px;
+}
+
+#settings-height {
     height: 880px;
 }
 
