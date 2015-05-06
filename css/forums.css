@@ -13,15 +13,16 @@ body {
 }
 
 .top-bar li {
-   font-family: "Verdana";
-   font-size: 1.4em;
+   font-family: Verdana;
+   font-size: 1.3em;
    line-height: 50px;
    display: inline-block;
-   margin-right:-3px; 
    text-align: center;
    height: 50px;
    width: 130px;
    color: #FFFFFF;
+   margin-right: 0.7em;
+   font-weight: bold;
 }
 
 .top-bar li:hover {
