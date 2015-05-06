@@ -33,7 +33,7 @@ include 'checkIfLoggedIn.php';
              <div id="left-menu-bar"> 
                <ul>
                  <li>Home</li>
-                 <li><a href="">Your Books</a></li>
+                 <li><a href="ViewMyBooks.php">Your Books</a></li>
                  <li><a href="">Upload a Book</a></li>
                  <li><a href="">View all Books</a></li>
                  <li><a href="">Manange Account</a></li>
