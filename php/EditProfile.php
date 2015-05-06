@@ -40,14 +40,14 @@ include 'header.php';
             <?php displayProfile(); ?>
           </ul>
         </div>
-        <form action="" id="editForm" name="editForm" method="post" > <!-- onsubmit="return validateRegistration()" -->
+        <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateEditProfile()" >
           <input type="text" class="inputField editPage" name="firstName" placeholder="  First Name: John" >
           <input type="text" class="inputField editPage" name="lastName" placeholder="  Last Name: Smith" >
           <input type="text" class="inputField editPage" name="email" placeholder="  Email: john.smith@example.com" >
           <input type="text" class="inputField editPage" name="userName" placeHolder= " Username:  JSmith123" > 
           <input type="password" class="inputField editPage" name="password" placeholder= "  Password" >
           <input type="password" class="inputField editPage" name="repeatPassword" placeholder= "  Repeat Password" >
-          <button class="request-button" type="submit" form="registrationForm" name="submit" value="submit"> Update! </button>
+          <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
         </form>
         <div>
           <a href="DeleteAccount.php"> Delete Account </a>
@@ -93,11 +93,11 @@ include 'header.php';
     
     function editProfile()
     {
-        $pass = $_POST['password'];
         $first_name = $_POST['firstName'];
         $last_name = $_POST['lastName'];
-        $email=$_POST['email'];
         $user_name = $_POST['userName'];
+        $email=$_POST['email'];
+        $pass = $_POST['password'];
         $userChanged = FALSE;
         
         $str = "UPDATE users ";
@@ -111,12 +111,12 @@ include 'header.php';
         }
         if ($last_name != '')
         {
-            $contains[] = "nast_name = :last_name";
+            $contains[] = "last_name = :last_name";
             $bind['last_name'] = $last_name;
         }
         if ($user_name != '')
         {
-            $contains[] = "username = :username";
+            $contains[] = "user_name = :user_name";
             $bind['user_name'] = $user_name;
             $userChanged = TRUE;
         }
@@ -129,7 +129,7 @@ include 'header.php';
         {
             $crypt = better_crypt($_POST['password']);
             $bind['password'] = $crypt;
-            $contains[] = "Password = :password";
+            $contains[] = "password = :password";
         }
         
         $query = $str;
@@ -137,8 +137,7 @@ include 'header.php';
            $query .= " SET " . implode(', ', $contains);
         }
 
-        $query .= ' WHERE Username = '.$_SESSION['username'];
-        
+        $query .= " WHERE user_name = '" . $_SESSION['username']. "' ";
         $con = new PDO("mysql:host=localhost;dbname=".DATABASE_NAME, DATABASE_NAME, PASSWORD);
         $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -163,6 +162,7 @@ include 'header.php';
         }
         
         $con = null;
+        header("location: EditProfile.php");
     }
     
     //encryption algorithm

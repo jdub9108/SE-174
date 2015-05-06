@@ -142,3 +142,29 @@ function validateLogin(){
     return true;
     
 }
+
+function validateEditProfile(){
+    var message = "";
+    
+    if(document.getElementsByName("password")[0].value == "" && document.getElementsByName("email")[0].value == "" && document.getElementsByName("userName")[0].value == "" && document.getElementsByName("firstName")[0].value == "" &&
+      document.getElementsByName("lastName")[0].value == "")
+        message += "Please fill in at least one of the fields.";
+    else
+    {
+        if(document.getElementsByName("password")[0].value != "")
+            message += validatePassword(false);
+        if(document.getElementsByName("email")[0].value != "")
+            message += validateEmail(true);
+        if(document.getElementsByName("userName")[0].value != "")
+            message += validateUserName(false);
+    }
+    
+    if(message != ""){
+        
+        message = "Errors: \n\n" + message;
+        alert (message);
+        return false; //return false so the PHP file doesn't run
+    }
+    return true;
+    
+}
