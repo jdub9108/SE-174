@@ -59,3 +59,57 @@ body {
 .top-bar li ul li {
   display: block;
 }
+
+.book-info {
+    background-color: #e0e0e0;
+    margin-left: auto ;
+    margin-right: auto ;
+    margin-top: 30px;
+    margin-bottom: 110px;
+    width: 400px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+h2 {
+    font-family: "Verdana";
+    color: #3C8CDA;
+    padding-top: 30px;
+    margin: auto;
+}
+
+.inputField {
+    font-family: Verdana;
+    border: 1.3px solid #B3B3B3;
+    border-radius: 0.35em;
+    font-size: 14px;
+}
+
+#add-book-height {
+    height:650px;
+}
+
+.addBookPage {
+    margin-top: 2em;
+    width: 22em;
+    height: 3.5em;
+}
+
+.request-button {
+    width: 130px;
+    height: 50px;
+    margin-top: 40px;
+    font-size: 20px;
+    font-weight: 400;
+    border: 2.3px solid #B3B3B3;   
+    border-radius: 5px;
+    background-color: #3C8CDA;
+    margin-left:auto;
+    margin-right:auto;
+    cursor: pointer;
+}
+
+.request-button:hover {
+    background-color: #0099FF;
+    color: white;
+}

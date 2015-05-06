@@ -26,8 +26,7 @@
                     <?php // { ?>
                     <!-- not ready with css yet <li> <?php// echo $_SESSION['username']; ?> 
                         <ul>
-                            <li><a href='EditProfile.php'> Edit Profile </a></li>
-                            <li> Settings </li>
+                            <li><a href='EditProfile.php'> Settings </a></li>
                             <li><a href='logout.php'> Logout </a></li>
                         </ul>
                     </li> -->
@@ -100,4 +99,3 @@
 	</body>
 </html>
 
-<?php?> 
