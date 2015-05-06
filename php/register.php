@@ -35,7 +35,7 @@
       
       <div class="v-menu-bar-div">
         <ul class="vertical-menu-bar">
-          <li class="v-menu-a"> <a href="">About</a> </li> 
+          <li class="v-menu-a"> <a href="about.php">About</a> </li> 
           <li class="v-menu-a"> <a href="">Contact Us</a> </li> 
           <li class="v-menu-a"> <a href="">Lorum Ipsum</a> </li>
           <li class="v-menu-a"> <a href="http://www.sjsu.edu">SJSU</a> </li>
