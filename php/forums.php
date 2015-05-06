@@ -37,7 +37,7 @@ if(!isset($_SESSION['username']))
 
       <div class='book-info' id='add-book-height'>
         <h2>Add Book </h2>        
-        <form action='' method='post' id='addBookForm'> <!-- add js and php here -->
+        <form action='AddBook.php' method='post' id='addBookForm'> <!-- add js and php here -->
           <input type='text' class='inputField addBookPage'  name='userName' placeholder='  Title '>
           <input type='text' class='inputField addBookPage'  name='authorFirst' placeholder='  Author First '>
           <input type='text' class='inputField addBookPage'  name='authorLast' placeholder='  Author Last '>
