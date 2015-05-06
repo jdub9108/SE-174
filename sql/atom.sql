@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2015 at 06:14 PM
+-- Generation Time: May 06, 2015 at 06:41 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `books` (
   `image_path` varchar(500) NOT NULL,
   PRIMARY KEY (`book_id`),
   UNIQUE KEY `ISBN` (`isbn`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `books`
@@ -52,7 +52,12 @@ INSERT INTO `books` (`book_id`, `title`, `author_first`, `author_last`, `year_pu
 (6, 'The Ruby Programming Language', 'David', 'Flanagan', 2008, 448, 9780596516178, ''),
 (7, 'jQuery Pocket Reference', 'David', 'Flanagan', 2011, 160, 9781449397227, ''),
 (12, 'html', 'test', 'test', 2014, 415, 9781118289380, ''),
-(13, 'Great Gatsby', 'Jim', 'Gilligan', 2015, 12, 23412341234243, '');
+(13, 'Great Gatsby', 'Jim', 'Gilligan', 2015, 12, 23412341234243, ''),
+(14, 'Great Gatsby', 'Big', 'Watts', 2015, 12, 934800938408, ''),
+(15, 'Playboy', 'Hue', 'Heffner', 2012, 60, 3209348309, ''),
+(17, 'Playboy', 'Hue', 'Heffner', 2012, 60, 790078078097, ''),
+(18, 'Playboy', 'Hue', 'Heffner', 2012, 60, 89978987, ''),
+(19, 'jlsdkjf', 'herp ', 'derp', 2012, 60, 6435764567, '');
 
 -- --------------------------------------------------------
 
@@ -118,7 +123,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `books_sold` int(10) NOT NULL,
   `books_bought` int(10) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `first_name`, `user_name`, `last_name`, `email`, `password`, `books_sold`, `books_bought`) VALUES
+(2, 'Jordan', 'jdub9108', 'Watts', 'Jdub9108@gmail.com', '$2a$07$tBEEWQyE8rvtgg6vIPXuMeWqfXxN/.P1Blv6EfwOfvMHKrEpMoZIu', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -129,9 +141,21 @@ CREATE TABLE IF NOT EXISTS `users` (
 CREATE TABLE IF NOT EXISTS `user_books` (
   `user_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
-  UNIQUE KEY `user_id` (`user_id`),
-  UNIQUE KEY `book_id` (`book_id`)
+  PRIMARY KEY (`user_id`,`book_id`),
+  KEY `book_fk_id` (`book_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_books`
+--
+
+INSERT INTO `user_books` (`user_id`, `book_id`) VALUES
+(2, 13),
+(2, 14),
+(2, 15),
+(2, 17),
+(2, 18),
+(2, 19);
 
 -- --------------------------------------------------------
 
@@ -142,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `user_books` (
 CREATE TABLE IF NOT EXISTS `user_posts` (
   `user_id` int(11) NOT NULL,
   `post_id` int(11) NOT NULL,
-  UNIQUE KEY `user_id` (`user_id`,`post_id`),
+  PRIMARY KEY (`user_id`,`post_id`),
   KEY `post_fk_id` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
