@@ -1,5 +1,3 @@
-
-
     <?php
 
 include 'header.php';
@@ -14,6 +12,7 @@ include 'checkIfLoggedIn.php';
     	<title>Forums</title>
     	<link rel='stylesheet' type='text/css' href='../css/forums.css'>
         <link rel='stylesheet' type='text/css' href='../css/index.css'>
+        <link rel="stylesheet" type="text/css" href="../css/search.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
 	<script src="../javascript/userHomePage.js"></script> 
 	</head>
@@ -37,7 +36,7 @@ include 'checkIfLoggedIn.php';
              <div id="left-menu-bar"> 
                <ul>
                  <li>Home</li>
-                 <li><a href ="" "return viewAllBooks(false)">Your Books</a></li>
+                 <li><a href ="" onclick="return viewAllBooks(false)">Your Books</a></li>
                  <li><a href="" onclick="return addBookForm()" >Upload a Book</a></li>
                  <li><a href="" onclick="return viewAllBooks(true)">View all Books</a></li>
                  <li><a href="">Manange Account</a></li>
