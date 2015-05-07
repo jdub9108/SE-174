@@ -3,7 +3,12 @@ const SEARCH_BAR_ID = "#searchBar";
 //the div to display the results
 const DIV = "#searchResults";
 
-$(document).ready(function(){}
+$(document).ready(function(){
+
+    $(document).on("click", ".contact-button", function() {
+        alert("An email was sent to this user regarding your interest :)");
+    });
+}
 );
 
 function searchForBooks(){
@@ -63,5 +68,6 @@ function isISBN(searchQuery){
         searchQuery : searchQuery
     };
 }
+
 
 
