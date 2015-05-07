@@ -31,7 +31,11 @@ function showBooks($con, $allBooks) {
     }
     $ps = $con -> prepare($query);
     $ps -> bindParam(':user_name', $_SESSION['username'] );
-    grabBooks($ps);
+    
+    if ($allBooks == "true")
+        grabBooks($ps, true);
+    else
+        grabBooks($ps, false);
 }
 
 ?>      

@@ -29,7 +29,7 @@ function findBooks($userSearch, $con) {
     $query = SELECT_QUERY . FROM_QUERY . WHERE_QUERY;
     $ps = $con -> prepare($query);
     $ps -> bindParam(':searchTerm', $userSearch);
-    grabBooks($ps);
+    grabBooks($ps, true);
 }
 
 $javascriptData = getDataFromJavascript();

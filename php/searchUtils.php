@@ -42,20 +42,20 @@ function makeDataBaseConnection() {
     return $con;
 }
 
-function grabBooks($ps) {
+function grabBooks($ps, $showButton) {
     $ps -> setFetchMode(PDO::FETCH_CLASS, 'Book');
     $ps -> execute();
     $obj_array = $ps ->fetchAll();
     $total_books = count($obj_array);
 
     if (!empty($total_books))
-        createTable($obj_array, $total_books);
+        createTable($obj_array, $total_books, $showButton);
     else
         echo NO_RESULTS;
 }
 
 
-function createTable($obj_array, $total_books) {
+function createTable($obj_array, $total_books, $showButton) {
 
     $total_rows = ceil($total_books / BOOKS_PER_COLUMN);
     $counter = 0;
@@ -67,7 +67,7 @@ function createTable($obj_array, $total_books) {
         for ($j = 0; $j < BOOKS_PER_COLUMN; $j++) {
             if ($counter < $total_books){
                 $book = $obj_array[$counter];
-                createTableElement($book);
+                createTableElement($book, $showButton);
                 $counter++;
             }
         }
@@ -78,7 +78,7 @@ function createTable($obj_array, $total_books) {
 }
 
 
-function createTableElement($book) {
+function createTableElement($book, $showButton) {
     echo '<td>';
     
     $breakTag = "<br>";
@@ -100,6 +100,7 @@ function createTableElement($book) {
     if(empty($image_path)) {
         $image_path = NO_BOOK_COVER;
     }
+
     $image_format = sprintf('<img class="bookImage" src="%s" height="%d" width="%d"> %s',
                             "../" . $image_path, TABLE_ELEMENT_WIDTH, TABLE_ELEMENT_HEIGHT, $breakTag);
 
@@ -108,7 +109,8 @@ function createTableElement($book) {
     echo $author_format;
     echo $isbn_format;   
     echo $owner_format;
-    echo '<button class="contact-button request-button home-buttons">Contact</button>';
+    if($showButton)
+        echo '<button class="contact-button request-button home-buttons">Contact</button>';
     echo '</td>';
 }
 
