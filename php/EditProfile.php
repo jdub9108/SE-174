@@ -41,10 +41,10 @@ include 'header.php';
           </ul>
         </div>
         <form action="" id="editForm" name="editForm" method="post" onsubmit="return validateEditProfile()" >
-          <input type="text" class="inputField registrationPage" name="firstName" placeholder="Change First Name" >
-          <input type="text" class="inputField registrationPage" name="lastName" placeholder="Change Last Name" >
+<!--          <input type="text" class="inputField registrationPage" name="firstName" placeholder="Change First Name" >
+          <input type="text" class="inputField registrationPage" name="lastName" placeholder="Change Last Name" >-->
           <input type="text" class="inputField registrationPage" name="email" placeholder="Change Email" >
-          <input type="text" class="inputField registrationPage" name="userName" placeHolder= "Change Username" > 
+<!--          <input type="text" class="inputField registrationPage" name="userName" placeHolder= "Change Username" > -->
           <input type="password" class="inputField registrationPage" name="password" placeholder= "Change Password" >
           <input type="password" class="inputField registrationPage" name="repeatPassword" placeholder="Repeat Password" >
           <button class="request-button" type="submit" form="editForm" name="submit" value="submit"> Update! </button>
@@ -90,9 +90,9 @@ include 'header.php';
     
     function editProfile()
     {
-        $first_name = $_POST['firstName'];
-        $last_name = $_POST['lastName'];
-        $user_name = $_POST['userName'];
+        //$first_name = $_POST['firstName'];
+        //$last_name = $_POST['lastName'];
+        //$user_name = $_POST['userName'];
         $email=$_POST['email'];
         $pass = $_POST['password'];
         $userChanged = FALSE;
@@ -101,7 +101,7 @@ include 'header.php';
         $contains = array();
         $bind = array();
 
-        if ($first_name != '')
+        /*if ($first_name != '')
         {
              $contains[] = "first_name = :first_name";
              $bind['first_name'] = $first_name;
@@ -116,7 +116,7 @@ include 'header.php';
             $contains[] = "user_name = :user_name";
             $bind['user_name'] = $user_name;
             $userChanged = TRUE;
-        }
+        }*/
         if ($email != '')
         {
             $contains[] = "email = :email";
