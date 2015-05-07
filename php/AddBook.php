@@ -9,12 +9,8 @@ if(!isset($_SESSION['username']))
     header('Location: index.php');
 }
 
-else
-{
-   if(isset($_POST['submit']))
-   {
-		uploadBookToDatabase();
-	 }
+else{
+	uploadBookToDatabase();
 }
 
 function uploadBookToDatabase()
@@ -22,6 +18,7 @@ function uploadBookToDatabase()
 	try
 	{
 		$title = $_POST['title'];
+        echo "$title";
 		$author_first = $_POST['authorFirst'];
 		$author_last = $_POST['authorLast'];
 		$year_published = $_POST['yearPublished'];
