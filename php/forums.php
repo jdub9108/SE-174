@@ -34,8 +34,8 @@ include 'checkIfLoggedIn.php';
 
              <div id="left-menu-bar"> 
                <ul>
-                 <li>Home</li>
-                 <li><a href ="" onclick="return viewAllBooks(false)">My Books</a></li>
+                 <li><a href="forums.php">Home</a></li>
+                 <li><a href="" onclick="return viewAllBooks(false)">My Books</a></li>
                  <li><a href="" onclick="return addBookForm()" >Upload a Book</a></li>
                  <li><a href="" onclick="return viewAllBooks(true)">View all Books</a></li>
                  <li><a href="EditProfile.php">Manage Account</a></li>
