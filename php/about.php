@@ -31,7 +31,7 @@
 
       <div id="about-us-div">
         <h2>Motivation</h2>
-        <p>We created this website for our fellow Spartans at <a href="http://www.sjsu.edu">SJSU</a>. As students, we all experienced purchasing expensive textbooks. By semester\'s end, the majority of students do not use their textbooks anymore and are looking for a place to resell them. Most bookstores underpay students for their textbooks. That\'s where we step in. We created a website that let students search and sell books to each other.</p>
+        <p>We created this website for our fellow Spartans at <a href="http://www.sjsu.edu">SJSU</a>. As students, we all experienced purchasing expensive textbooks. By semester's end, the majority of students do not use their textbooks anymore and are looking for a place to resell them. Most bookstores underpay students for their textbooks. That's where we step in. We created a website that let students search and sell books to each other.</p>
 
         <h2>Why The Students?</h2>
         <p>When it comes to selling/buying books, students tend to be reasonably fair because of the <b>shared camaraderie</b> of buying textbooks. We all want to buy cheaps textbooks and not get <i>ripped</i> off, no one understands this more than college students.</p>
