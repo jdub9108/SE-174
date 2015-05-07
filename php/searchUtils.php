@@ -113,7 +113,7 @@ function createTableElement($book, $showButton) {
     echo $author_format;
     echo $isbn_format;   
     echo $owner_format;
-    if($showButton && isset($_SESSION['username']))
+    if($showButton && isset($_SESSION['username']) && $_SESSION['username'] != $owner)
         echo '<button class="contact-button request-button home-buttons">Contact</button>';
     echo '</td>';
 }
