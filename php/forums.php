@@ -13,7 +13,8 @@ include 'checkIfLoggedIn.php';
     	<link rel='stylesheet' type='text/css' href='../css/forums.css'>
         <link rel='stylesheet' type='text/css' href='../css/index.css'>
         <link rel="stylesheet" type="text/css" href="../css/search.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script src="../javascript/search.js"></script> 
 	<script src="../javascript/userHomePage.js"></script> 
 	</head>
 
@@ -39,6 +40,7 @@ include 'checkIfLoggedIn.php';
                  <li><a href="" onclick="return addBookForm()" >Upload a Book</a></li>
                  <li><a href="" onclick="return viewAllBooks(true)">View all Books</a></li>
                  <li><a href="EditProfile.php">Manage Account</a></li>
+                        <li><a href="index.php">Search?</a></li>
                </ul> 
              </div>
                 
