@@ -15,7 +15,6 @@ define("ALL_BOOKS_QUERY", SELECT_QUERY . FROM_QUERY . WHERE_ALL);
 
 //get the value from javascript to check if the user wants to display all books or their books
 $allBooks = $_GET['books'];
-echo "$allBooks";
 
 $con = makeDataBaseConnection();
 showBooks($con, $allBooks);
@@ -23,9 +22,11 @@ showBooks($con, $allBooks);
 
 function showBooks($con, $allBooks) {
     if($allBooks == "true") {
+        echo "<h1> All Books </h1>";
         $query = ALL_BOOKS_QUERY;
     }
     else{
+        echo "<h1> My Books </h1>";
         $query = USER_BOOKS_QUERY;
     }
     $ps = $con -> prepare($query);
