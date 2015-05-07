@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
   <head>
     <title>About</title>
@@ -14,9 +15,14 @@
       <a href="index.php"> <img id="logo" src= "../images/book-logo3.png"> </a>
       <ul>
         <li> <a href="index.php">Home</a></li>
+        <?php if(!isset($_SESSION['username'])) { ?>
         <li> <a href="login.php">Login</a></li>
         <li> <a href="register.php">Register</a></li>
+        <?php } else ?>
         <li> <a href="about.php">About</a></li>
+        <?php { ?>
+        <li> <a href="forums.php">Forums</a></li> 
+        <?php } ?>
      </ul>
     </div>
 

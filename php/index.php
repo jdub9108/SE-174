@@ -21,16 +21,11 @@
                     <?php if(!isset($_SESSION['username'])) { ?>
                     <li> <a href="login.php">Login</a></li>
                     <li> <a href="register.php">Register</a></li>
-                    <?php } //else ?>
+                    <?php } else ?>
                     <li> <a href="about.php">About</a></li>
-                    <?php // { ?>
-                    <!-- not ready with css yet <li> <?php// echo $_SESSION['username']; ?> 
-                        <ul>
-                            <li><a href='EditProfile.php'> Settings </a></li>
-                            <li><a href='logout.php'> Logout </a></li>
-                        </ul>
-                    </li> -->
-                    <?php //} ?>
+                    <?php { ?>
+                    <li> <a href="forums.php">Forums</a></li> 
+                    <?php } ?>
     		</ul>
       </div>
       
