@@ -1,6 +1,10 @@
 <?php
 include 'header.php';
 
+if(!isset($_SESSION['username'])){ //if login in session is not set
+    session_start();
+ }
+   
 define ("BOOKS_PER_COLUMN", 4);
 define ("TABLE_ELEMENT_WIDTH", 210);
 define ("TABLE_ELEMENT_HEIGHT", 150);
@@ -109,7 +113,7 @@ function createTableElement($book, $showButton) {
     echo $author_format;
     echo $isbn_format;   
     echo $owner_format;
-    if($showButton)
+    if($showButton && isset($_SESSION['username']))
         echo '<button class="contact-button request-button home-buttons">Contact</button>';
     echo '</td>';
 }
