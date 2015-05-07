@@ -49,10 +49,9 @@ function addBookForm() {
 
 function viewAllBooks (allBooks) {
 
-    var books = $.get("../php/viewBooks.php", {blah: allBooks}, function(data){
+    $.get("../php/viewBooks.php", {books: allBooks}, function(data){
         $("#changing-div").html(data);
     });
-
     return false;
 }
 

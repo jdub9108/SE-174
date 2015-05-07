@@ -13,7 +13,8 @@ define("WHERE_ALL", " WHERE user_name != :user_name AND books.book_id != user_bo
 define ("USER_BOOKS_QUERY", SELECT_QUERY . FROM_QUERY . WHERE_USER );
 define("ALL_BOOKS_QUERY", SELECT_QUERY . FROM_QUERY . WHERE_ALL);
 
-$allBooks = $_GET['blah'];
+//get the value from javascript to check if the user wants to display all books or their books
+$allBooks = $_GET['books'];
 echo "$allBooks";
 
 $con = makeDataBaseConnection();
