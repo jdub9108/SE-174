@@ -21,10 +21,10 @@
                     <?php if(!isset($_SESSION['username'])) { ?>
                     <li> <a href="login.php">Login</a></li>
                     <li> <a href="register.php">Register</a></li>
-                    <?php } else ?>
+                    <?php } ?>
                     <li> <a href="about.php">About</a></li>
-                    <?php { ?>
-                    <li> <a href="forums.php">Forums</a></li> 
+                    <?php if(isset($_SESSION['username'])) { ?>
+                    <li> <a href="forums.php">My Profile</a></li> 
                     <?php } ?>
     		</ul>
       </div>
