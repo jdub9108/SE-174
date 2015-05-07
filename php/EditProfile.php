@@ -23,7 +23,7 @@ include 'header.php';
     <div class="main_div">
       <div class="top-bar">
         <ul>
-          <li> <a href="index.php"> Home </a></li>
+          <li> <a href="forums.php"> Home </a></li>
           <li> <?php echo $_SESSION['username']; ?> 
             <ul>
               <li><a href='EditProfile.php'> Settings </a></li>
