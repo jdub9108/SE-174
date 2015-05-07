@@ -139,6 +139,9 @@ h2 {
     transition: background 0.3s linear 0s, color 0.3s linear 0s;
             
 }
+#left-menu-bar > ul > li:first-child:hover {
+    background-color: #D09530;
+}
 
 #left-menu-bar > ul > li > a {
     text-decoration: none;
