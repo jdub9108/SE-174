@@ -48,7 +48,7 @@
       <!-- search bar -->
       <div id="search-bar-div">       
       	<form  id="search-form"> 
-      	  <input type="text" id="searchBar" class="inputField"  name="searchQuery" placeholder="Enter an ISBN, title or author">
+      	  <input type="text" id="searchBar" class="inputField"  name="searchQuery" placeholder="Enter an ISBN, title or author" onkeyup="searchForBooks; return false;">
       	  <button type="submit" id="home_submit" form="search-form" value="Submit" onclick="searchForBooks(); return false;"> Search </button> <!-- IMPORTANT, for AJAX to work the onclick must be where the type=submit is -->
       	</form>       
       </div>
