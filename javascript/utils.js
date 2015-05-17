@@ -145,22 +145,22 @@ function validateLogin(){
 
 function validateEditProfile(){
     var message = "";
+    var pwField = document.getElementsByName("password")[0].value;
+    var pwRepeatField = document.getElementsByName("repeatPassword")[0].value;
+    var emailField =    document.getElementsByName("email")[0].value;
     
-    if(document.getElementsByName("password")[0].value == "" && document.getElementsByName("email")[0].value == "" && document.getElementsByName("userName")[0].value == "" && document.getElementsByName("firstName")[0].value == "" &&
-      document.getElementsByName("lastName")[0].value == "")
+    if(emailField == "" && pwField == "" && pwRepeatField == "")
         message += "Please fill in at least one of the fields.";
-    else
-    {
-        if(document.getElementsByName("password")[0].value != "")
+    else if(pwField == "" && pwRepeatField != "")
+        message += "Please fill in both password fields";
+    else{
+        if(pwField != "")
             message += validatePassword(false);
-        if(document.getElementsByName("email")[0].value != "")
+        if(emailField != "")
             message += validateEmail(true);
-        if(document.getElementsByName("userName")[0].value != "")
-            message += validateUserName(false);
     }
     
     if(message != ""){
-        
         message = "Errors: \n\n" + message;
         alert (message);
         return false; //return false so the PHP file doesn't run
