@@ -98,7 +98,7 @@ function validateAuthor(firstName, lastName) {
 }
 
 function validateYear(yearPublished) {
-    var yearRegex = /^\d{4}$/;
+    var yearRegex = /^\d{1,}$/;
     var invalidYearMessage = "Invalid year\n\nThe year should be in the form xxxx\n\n";
 
     if (yearPublished == "" || !yearPublished.match(yearRegex)) {
