@@ -13,7 +13,8 @@ $(document).ready(function(){
 
 function searchForBooks(){
     
-    var searchTerm = $(SEARCH_BAR_ID).val();
+    var searchTerm = $(SEARCH_BAR_ID).val().trim();
+
     var isbnResult = isISBN(searchTerm);
 
     if (searchTerm == "") {
