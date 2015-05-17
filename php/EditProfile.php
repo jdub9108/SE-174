@@ -15,7 +15,7 @@ include 'header.php';
     <title>Edit Profile</title>
 
     <link rel="stylesheet" type="text/css" href="../css/index.css">
-    <link rel="stylesheet" type="text/css" href="../css/forums.css">
+    <link rel="stylesheet" type="text/css" href="../css/userHomePage.css">
     <script src="../javascript/utils.js"></script>
   </head>   
 
@@ -23,7 +23,7 @@ include 'header.php';
     <div class="main_div">
       <div class="top-bar">
         <ul>
-          <li> <a href="forums.php"> Home </a></li>
+          <li> <a href="userHomePage.php"> Home </a></li>
           <li> <?php echo $_SESSION['username']; ?> 
             <ul>
               <li><a href='EditProfile.php'> Settings </a></li>

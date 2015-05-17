@@ -53,7 +53,7 @@
 
         if(isset($_SESSION['username'])) 
         {
-          header('Location: forums.php');
+          header('Location: userHomePage.php');
         }
 
         else
@@ -93,13 +93,13 @@
                     //Get the correct password from the database
                     $db_password = $data[0]['password'];
                 
-                    //redirect to forums
+                    //redirect to userHomePage
                     if($db_password == password_verify($password, $db_password))
                     {
                         $firstname = $data[0]['first_name'];
                         $lastname = $data[0]['last_name'];
                         $_SESSION['username'] = $_POST['userName'];
-                        header("Location: forums.php");
+                        header("Location: userHomePage.php");
                     }
 
                     else

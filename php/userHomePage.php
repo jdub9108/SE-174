@@ -1,4 +1,4 @@
-    <?php
+<?php
 
 include 'header.php';
 include 'checkIfLoggedIn.php';
@@ -9,8 +9,8 @@ include 'checkIfLoggedIn.php';
 
 	<head>
 		<meta charset="UTF-8">
-    	<title>Forums</title>
-    	<link rel='stylesheet' type='text/css' href='../css/forums.css'>
+    	<title>UserHomePage</title>
+    	<link rel='stylesheet' type='text/css' href='../css/userHomePage.css'>
         <link rel='stylesheet' type='text/css' href='../css/index.css'>
         <link rel="stylesheet" type="text/css" href="../css/search.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -35,7 +35,7 @@ include 'checkIfLoggedIn.php';
 
              <div id="left-menu-bar"> 
                <ul>
-                 <li><a href="forums.php">Home</a></li>
+                 <li><a href="userHomePage.php">Home</a></li>
                  <li><a href="" onclick="return viewAllBooks(false)">My Books</a></li>
                  <li><a href="" onclick="return addBookForm()" >Upload a Book</a></li>
                  <li><a href="" onclick="return viewAllBooks(true)">View all Books</a></li>

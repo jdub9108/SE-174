@@ -66,7 +66,7 @@ function uploadBookToDatabase()
     $prepared_statement->bindValue(':book_id', $book_id, PDO::PARAM_INT);
     $prepared_statement->execute();
 
-    header("Location: forums.php");
+    header("Location: userHomePage.php");
 	}
 
 	catch(PDOException $ex)

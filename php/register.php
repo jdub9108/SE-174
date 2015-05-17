@@ -93,7 +93,7 @@
             $prepared_statement->execute();
 
             $_SESSION['username'] = $_POST['userName'];
-            header("Location: forums.php");
+            header("Location: userHomePage.php");
         } 
 
         catch (Exception $e) 

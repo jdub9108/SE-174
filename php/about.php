@@ -21,7 +21,7 @@
         <?php } ?>
         <li> <a href="about.php">About</a></li>
         <?php if(isset($_SESSION['username'])) { ?>
-        <li> <a href="forums.php">My Profile</a></li> 
+        <li> <a href="userHomePage.php">My Profile</a></li> 
         <?php } ?>
      </ul>
     </div>
